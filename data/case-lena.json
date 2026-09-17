@@ -1,0 +1,86 @@
+{
+  "_comment": "Ground-truth case used by the demo. Produced by the agent pipeline in ../agents, then frozen so the stage demo never depends on network or model latency.",
+  "taxpayer": {
+    "name": "Lena Brandt",
+    "steuerklasse": "I",
+    "bundesland": "Berlin",
+    "employer": "Nexola GmbH, Potsdam",
+    "brutto_jahr": 62000,
+    "marginal_rate": 0.35,
+    "marginal_rate_note": "Marginal income-tax rate at this income in Steuerklasse I. No Soli is levied at this level (Freigrenze not reached). Deliberately conservative — the § 32a tariff gives roughly 36-38% here, so this understates the benefit. Recompute per user in production."
+  },
+  "expiring": {
+    "year": 2022,
+    "estimated_refund": 2417,
+    "expires_on": "2026-12-31",
+    "statute": "§ 169 AO i.V.m. § 46 Abs. 2 Nr. 8 EStG",
+    "rule": "Antragsveranlagung: four-year assessment window. The 2022 return must be filed by 31 Dec 2026 or the refund lapses permanently."
+  },
+  "expenses": [
+    {
+      "id": "pendler",
+      "label": "Pendlerpauschale",
+      "detail": "42 km each way · 200 working days",
+      "amount": 2872,
+      "math": "20 km × €0.30 + 22 km × €0.38 = €14.36/day × 200",
+      "statute": "§ 9 Abs. 1 Nr. 4 EStG",
+      "confidence": 0.98
+    },
+    {
+      "id": "fortbildung",
+      "label": "Fortbildungskosten",
+      "detail": "Part-time M.Sc. tuition, 2 semesters",
+      "amount": 3900,
+      "math": "Invoices 04/2026 and 10/2026",
+      "statute": "§ 9 Abs. 1 Satz 1 EStG",
+      "confidence": 0.95
+    },
+    {
+      "id": "arbeitsmittel",
+      "label": "Arbeitsmittel",
+      "detail": "Desk, monitor, noise-cancelling headset",
+      "amount": 332,
+      "math": "GWG, each below the €800 immediate-write-off threshold",
+      "statute": "§ 9 Abs. 1 Nr. 6 EStG",
+      "confidence": 0.91
+    },
+    {
+      "id": "berufsverband",
+      "label": "Berufsverband",
+      "detail": "Union membership dues",
+      "amount": 220,
+      "math": "€18.33/month × 12",
+      "statute": "§ 9 Abs. 1 Nr. 3 EStG",
+      "confidence": 0.99
+    },
+    {
+      "id": "bewerbung",
+      "label": "Bewerbungskosten",
+      "detail": "Travel to interviews, application materials",
+      "amount": 180,
+      "math": "3 trips + document costs",
+      "statute": "§ 9 Abs. 1 Satz 1 EStG",
+      "confidence": 0.84
+    }
+  ],
+  "calculation": {
+    "werbungskosten_total": 7504,
+    "pauschbetrag": 1230,
+    "pauschbetrag_statute": "§ 9a Satz 1 Nr. 1a EStG — Arbeitnehmer-Pauschbetrag, granted automatically",
+    "freibetrag": 6274,
+    "antragsgrenze": 600,
+    "antragsgrenze_statute": "§ 39a Abs. 2 Satz 4 EStG — amounts above the Pauschbetrag must exceed €600 to be registrable",
+    "antragsgrenze_passed": true,
+    "monthly_taxable_reduction": 522.83,
+    "monthly_net_gain": 183,
+    "annual_net_gain": 2196,
+    "first_payslip": "28 November",
+    "counterfactual": "Without registration this €2,196 arrives as a refund in July 2027 — a 14-month interest-free loan to the state."
+  },
+  "filing": {
+    "form": "Antrag auf Lohnsteuer-Ermäßigung",
+    "statute": "§ 39a EStG",
+    "channel": "ELSTER",
+    "validity": "Valid for two calendar years; re-confirm when income or commute changes."
+  }
+}

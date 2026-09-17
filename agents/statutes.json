@@ -1,0 +1,69 @@
+{
+  "_comment": "Statute corpus served to the Statute Agent as a tool. In production this is an MCP server over the live EStG/AO text; here it is a frozen extract of the provisions the pipeline actually relies on.",
+  "provisions": [
+    {
+      "id": "EStG-9-1-4",
+      "cite": "§ 9 Abs. 1 Nr. 4 EStG",
+      "title": "Entfernungspauschale",
+      "summary": "Commuting between home and the primary place of work: €0.30 per kilometre for the first 20 km of the one-way distance, €0.38 from the 21st kilometre onward, counted once per working day.",
+      "cap": null,
+      "keywords": ["commute", "pendler", "entfernung", "travel to work"]
+    },
+    {
+      "id": "EStG-9-1-6",
+      "cite": "§ 9 Abs. 1 Nr. 6 EStG",
+      "title": "Arbeitsmittel",
+      "summary": "Tools and equipment used predominantly for work. Items with acquisition costs at or below the low-value-asset threshold may be written off in full in the year of purchase; above it they are depreciated over the useful life.",
+      "cap": null,
+      "keywords": ["equipment", "laptop", "desk", "monitor", "arbeitsmittel", "tools"]
+    },
+    {
+      "id": "EStG-9-1-3",
+      "cite": "§ 9 Abs. 1 Nr. 3 EStG",
+      "title": "Beiträge zu Berufsverbänden",
+      "summary": "Membership dues paid to professional associations and trade unions are deductible in full.",
+      "cap": null,
+      "keywords": ["union", "gewerkschaft", "berufsverband", "membership", "dues"]
+    },
+    {
+      "id": "EStG-9-1-S1",
+      "cite": "§ 9 Abs. 1 Satz 1 EStG",
+      "title": "Werbungskosten — general clause",
+      "summary": "Expenses incurred to acquire, secure and maintain employment income. Covers further training related to the current occupation, job-application costs and comparable expenditure not named in a specific subsection.",
+      "cap": null,
+      "keywords": ["training", "fortbildung", "course", "application", "bewerbung", "general"]
+    },
+    {
+      "id": "EStG-9a-1-1a",
+      "cite": "§ 9a Satz 1 Nr. 1a EStG",
+      "title": "Arbeitnehmer-Pauschbetrag",
+      "summary": "A flat employee allowance is deducted automatically from employment income. Actual Werbungskosten only produce an additional benefit to the extent that they exceed this flat amount.",
+      "cap": 1230,
+      "keywords": ["pauschbetrag", "flat allowance", "threshold"]
+    },
+    {
+      "id": "EStG-39a-2-S4",
+      "cite": "§ 39a Abs. 2 Satz 4 EStG",
+      "title": "Antragsgrenze",
+      "summary": "Amounts exceeding the Arbeitnehmer-Pauschbetrag can only be registered as a Freibetrag once they pass an application threshold of €600.",
+      "cap": 600,
+      "keywords": ["antragsgrenze", "threshold", "600"]
+    },
+    {
+      "id": "EStG-39a",
+      "cite": "§ 39a EStG",
+      "title": "Lohnsteuer-Ermäßigungsverfahren",
+      "summary": "On application, the tax office registers a Freibetrag as an electronic wage-tax deduction feature. The employer then applies it to each payroll run, reducing withholding immediately instead of deferring the relief to the annual assessment. Registration is generally valid for two calendar years.",
+      "cap": null,
+      "keywords": ["freibetrag", "lohnsteuerermäßigung", "monthly", "withholding"]
+    },
+    {
+      "id": "AO-169",
+      "cite": "§ 169 AO i.V.m. § 46 Abs. 2 Nr. 8 EStG",
+      "title": "Festsetzungsfrist — Antragsveranlagung",
+      "summary": "A voluntary income-tax return may be filed within the four-year assessment period. Once that period ends, the claim to any refund for that year lapses and cannot be revived.",
+      "cap": null,
+      "keywords": ["retroactive", "four years", "expiry", "festsetzungsfrist", "verjährung"]
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "lena",
+  "payslip": {
+    "arbeitgeber": "Nexola GmbH, Potsdam",
+    "zeitraum": "09/2026",
+    "bruttogehalt_monat": 5166.67,
+    "steuerklasse": "I",
+    "kirchensteuer": false,
+    "bundesland": "Berlin",
+    "lohnsteuer_monat": 968.42,
+    "soli_monat": 0.0,
+    "sozialversicherung_monat": 1043.15,
+    "freibetrag_eingetragen": 0
+  },
+  "commute": { "einfache_entfernung_km": 42, "arbeitstage_im_buero": 200 },
+  "calendar": { "homeoffice_tage": 0, "dienstreisen": 0 },
+  "receipts": [
+    { "datum": "2026-04-02", "haendler": "Universität Potsdam", "betrag": 1950.0, "text": "Semesterbeitrag M.Sc. berufsbegleitend" },
+    { "datum": "2026-10-01", "haendler": "Universität Potsdam", "betrag": 1950.0, "text": "Semesterbeitrag M.Sc. berufsbegleitend" },
+    { "datum": "2026-02-11", "haendler": "Schreibtischwelt", "betrag": 189.0, "text": "Hoehenverstellbarer Schreibtisch" },
+    { "datum": "2026-02-11", "haendler": "Schreibtischwelt", "betrag": 89.0, "text": "Monitor 27 Zoll" },
+    { "datum": "2026-05-20", "haendler": "Audiohaus", "betrag": 54.0, "text": "Noise-Cancelling Headset" },
+    { "datum": "2026-01-15", "haendler": "ver.di", "betrag": 220.0, "text": "Mitgliedsbeitrag 2026" },
+    { "datum": "2026-06-03", "haendler": "Deutsche Bahn", "betrag": 132.0, "text": "3x Fahrt Vorstellungsgespraech Hamburg" },
+    { "datum": "2026-06-04", "haendler": "Copyshop Mitte", "betrag": 48.0, "text": "Bewerbungsmappen" }
+  ]
+}

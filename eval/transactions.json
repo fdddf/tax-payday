@@ -1,0 +1,2602 @@
+[
+  {
+    "id": "TX-001",
+    "merchant": "ver.di",
+    "amount_eur": 51.88,
+    "date": "2026-01-05",
+    "description_de": "Gewerkschaftsbeitrag Monatsbeitrag",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Nr. 3 EStG",
+      "reasoning": "Beiträge zu Berufsverbänden und Gewerkschaften sind in voller Höhe abziehbar."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-002",
+    "merchant": "Vodafone",
+    "amount_eur": 24.17,
+    "date": "2026-01-06",
+    "description_de": "Handyvertrag Familie Monatsbeitrag",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Privater Telekommunikationsvertrag ohne nachgewiesenen beruflichen Anteil."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-003",
+    "merchant": "EDEKA",
+    "amount_eur": 106,
+    "date": "2026-01-06",
+    "description_de": "Wocheneinkauf inkl. Drogerieartikel",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Private Lebenshaltungskosten, nicht abziehbar (§ 12 Nr. 1 EStG)."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-004",
+    "merchant": "REWE",
+    "amount_eur": 103.19,
+    "date": "2026-01-08",
+    "description_de": "Wocheneinkauf inkl. Drogerieartikel",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Private Lebenshaltungskosten, nicht abziehbar (§ 12 Nr. 1 EStG)."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-005",
+    "merchant": "H&M",
+    "amount_eur": 404.2,
+    "date": "2026-01-09",
+    "description_de": "Business-Hemd und Hose",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Bürgerliche Kleidung ist auch bei beruflichem Anlass nicht abziehbar (§ 12 Nr. 1 EStG, BFH GrS 1/16)."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-006",
+    "merchant": "Restaurant Zur Post",
+    "amount_eur": 126.63,
+    "date": "2026-01-09",
+    "description_de": "Bewirtung von zwei Geschäftspartnern, Bewirtungsbeleg mit Anlass und Teilnehmern vorhanden",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Satz 1 EStG",
+      "reasoning": "Beruflich veranlasste Bewirtung mit ordnungsgemäßem Bewirtungsbeleg; beim Arbeitnehmer zu 70 % abziehbar."
+    },
+    "ambiguous": true
+  },
+  {
+    "id": "TX-007",
+    "merchant": "FitX",
+    "amount_eur": 36.17,
+    "date": "2026-01-12",
+    "description_de": "Monatsbeitrag Sportclub",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Sport ist private Lebensführung, kein Berufsverband im Sinne des § 9 Abs. 1 Nr. 3 EStG."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-008",
+    "merchant": "ALDI SÜD",
+    "amount_eur": 35.14,
+    "date": "2026-01-12",
+    "description_de": "Wocheneinkauf inkl. Drogerieartikel",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Private Lebenshaltungskosten, nicht abziehbar (§ 12 Nr. 1 EStG)."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-009",
+    "merchant": "Penny",
+    "amount_eur": 32.55,
+    "date": "2026-01-12",
+    "description_de": "Abendeinkauf Lebensmittel",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Private Lebenshaltungskosten, nicht abziehbar (§ 12 Nr. 1 EStG)."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-010",
+    "merchant": "DGB Bildungswerk",
+    "amount_eur": 937.35,
+    "date": "2026-01-14",
+    "description_de": "Ticket Branchenkongress Pflege 2026",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Satz 1 EStG",
+      "reasoning": "Fachkonferenz mit beruflichem Bezug — beruflich veranlasste Fortbildungskosten."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-011",
+    "merchant": "Netto Marken-Discount",
+    "amount_eur": 40.62,
+    "date": "2026-01-15",
+    "description_de": "Wocheneinkauf Lebensmittel",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Private Lebenshaltungskosten, nicht abziehbar (§ 12 Nr. 1 EStG)."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-012",
+    "merchant": "Skillshare",
+    "amount_eur": 47.22,
+    "date": "2026-01-15",
+    "description_de": "Kurs Gitarre lernen in 30 Tagen",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Hobbykurs ohne Bezug zum ausgeübten Beruf."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-013",
+    "merchant": "Shop Apotheke",
+    "amount_eur": 62.59,
+    "date": "2026-01-18",
+    "description_de": "Rezeptgebühr und Medikamente",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Krankheitskosten sind allenfalls außergewöhnliche Belastung (§ 33 EStG), keine Werbungskosten."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-014",
+    "merchant": "Berufsbekleidung Hoffmann",
+    "amount_eur": 55.07,
+    "date": "2026-01-21",
+    "description_de": "Arztkittel, 3 Stück, mit Praxislogo",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Nr. 6 EStG",
+      "reasoning": "Typische Berufskleidung, private Nutzung praktisch ausgeschlossen — Arbeitsmittel."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-015",
+    "merchant": "Deutscher Journalisten-Verband",
+    "amount_eur": 56.33,
+    "date": "2026-01-22",
+    "description_de": "Jahresbeitrag Berufsverband",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Nr. 3 EStG",
+      "reasoning": "Beiträge zu Berufsverbänden und Gewerkschaften sind in voller Höhe abziehbar."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-016",
+    "merchant": "Müller Drogerie",
+    "amount_eur": 42.47,
+    "date": "2026-01-22",
+    "description_de": "Haushaltsartikel",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Private Lebensführung, kein beruflicher Anlass."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-017",
+    "merchant": "Cyberport",
+    "amount_eur": 456.35,
+    "date": "2026-02-01",
+    "description_de": "Tastatur und Maus für den beruflichen Arbeitsplatz",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Nr. 6 EStG",
+      "reasoning": "Peripherie überwiegend beruflich genutzt — Arbeitsmittel."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-018",
+    "merchant": "Brauhaus Sion",
+    "amount_eur": 94.96,
+    "date": "2026-02-01",
+    "description_de": "Bewirtung von zwei Geschäftspartnern, Bewirtungsbeleg mit Anlass und Teilnehmern vorhanden",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Satz 1 EStG",
+      "reasoning": "Beruflich veranlasste Bewirtung mit ordnungsgemäßem Bewirtungsbeleg; beim Arbeitnehmer zu 70 % abziehbar."
+    },
+    "ambiguous": true
+  },
+  {
+    "id": "TX-019",
+    "merchant": "Allianz Versicherung",
+    "amount_eur": 27.31,
+    "date": "2026-02-03",
+    "description_de": "Beitrag private Haftpflichtversicherung",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Private Versicherung — allenfalls Sonderausgabe, keine Werbungskosten."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-020",
+    "merchant": "Amazon.de",
+    "amount_eur": 114.7,
+    "date": "2026-02-03",
+    "description_de": "Fachbuch Pflegedokumentation, aktuelle Auflage",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Nr. 6 EStG",
+      "reasoning": "Fachliteratur für den ausgeübten Beruf ist Arbeitsmittel."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-021",
+    "merchant": "Apotheke am Markt",
+    "amount_eur": 42.86,
+    "date": "2026-02-03",
+    "description_de": "Erkältungsmittel, rezeptfrei",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Krankheitskosten sind allenfalls außergewöhnliche Belastung (§ 33 EStG), keine Werbungskosten."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-022",
+    "merchant": "Praxis-Textil GmbH",
+    "amount_eur": 95.48,
+    "date": "2026-02-05",
+    "description_de": "Warnschutzjacke nach EN ISO 20471",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Nr. 6 EStG",
+      "reasoning": "Typische Berufskleidung, private Nutzung praktisch ausgeschlossen — Arbeitsmittel."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-023",
+    "merchant": "Telekom Deutschland",
+    "amount_eur": 51.37,
+    "date": "2026-02-05",
+    "description_de": "Mobilfunkrechnung privater Vertrag",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Privater Telekommunikationsvertrag ohne nachgewiesenen beruflichen Anteil."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-024",
+    "merchant": "Kaufland",
+    "amount_eur": 39.47,
+    "date": "2026-02-05",
+    "description_de": "Lebensmittel und Getränke",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Private Lebenshaltungskosten, nicht abziehbar (§ 12 Nr. 1 EStG)."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-025",
+    "merchant": "Sonnen-Apotheke",
+    "amount_eur": 42.92,
+    "date": "2026-02-06",
+    "description_de": "Rezeptgebühr und Medikamente",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Krankheitskosten sind allenfalls außergewöhnliche Belastung (§ 33 EStG), keine Werbungskosten."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-026",
+    "merchant": "Thalia",
+    "amount_eur": 140.7,
+    "date": "2026-02-06",
+    "description_de": "Fachliteratur Steuerrecht für Personaler, 2 Bände",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Nr. 6 EStG",
+      "reasoning": "Fachliteratur für den ausgeübten Beruf ist Arbeitsmittel."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-027",
+    "merchant": "MVG München",
+    "amount_eur": 228.69,
+    "date": "2026-02-07",
+    "description_de": "Monatsabo ÖPNV für den täglichen Arbeitsweg",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Nr. 4 EStG",
+      "reasoning": "Wege zwischen Wohnung und erster Tätigkeitsstätte — Entfernungspauschale."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-028",
+    "merchant": "Shell",
+    "amount_eur": 63.62,
+    "date": "2026-02-07",
+    "description_de": "Tankfüllung, überwiegend private Fahrten",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Private Fahrten; der Arbeitsweg ist bereits über die Entfernungspauschale abgegolten."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-029",
+    "merchant": "XXXLutz",
+    "amount_eur": 415.57,
+    "date": "2026-02-10",
+    "description_de": "Küchenregal und Geschirr",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Privates Wohnmobiliar, keine berufliche Veranlassung."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-030",
+    "merchant": "Penny",
+    "amount_eur": 75.91,
+    "date": "2026-02-11",
+    "description_de": "Abendeinkauf Lebensmittel",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Private Lebenshaltungskosten, nicht abziehbar (§ 12 Nr. 1 EStG)."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-031",
+    "merchant": "DGB Bildungswerk",
+    "amount_eur": 257.5,
+    "date": "2026-02-13",
+    "description_de": "Teilnahmegebühr Fachkonferenz IT-Sicherheit",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Satz 1 EStG",
+      "reasoning": "Fachkonferenz mit beruflichem Bezug — beruflich veranlasste Fortbildungskosten."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-032",
+    "merchant": "E.ON Energie",
+    "amount_eur": 206.85,
+    "date": "2026-02-15",
+    "description_de": "Jahresabrechnung Strom",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Privater Energieverbrauch, nicht beruflich veranlasst."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-033",
+    "merchant": "Thalia",
+    "amount_eur": 23.42,
+    "date": "2026-02-16",
+    "description_de": "Krimi-Bestseller und Kinderbuch",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Belletristik und private Lektüre, kein Arbeitsmittel."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-034",
+    "merchant": "Telekom Deutschland",
+    "amount_eur": 70.09,
+    "date": "2026-02-17",
+    "description_de": "Internet- und Telefonrechnung, beruflicher Nutzungsanteil 40 % im Homeoffice nachgewiesen",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Satz 1 EStG",
+      "reasoning": "Nachgewiesener beruflicher Nutzungsanteil an Telekommunikationskosten ist abziehbar."
+    },
+    "ambiguous": true
+  },
+  {
+    "id": "TX-035",
+    "merchant": "Zara",
+    "amount_eur": 255.72,
+    "date": "2026-02-18",
+    "description_de": "Anzug für das Büro",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Bürgerliche Kleidung ist auch bei beruflichem Anlass nicht abziehbar (§ 12 Nr. 1 EStG, BFH GrS 1/16)."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-036",
+    "merchant": "Web Summit GmbH",
+    "amount_eur": 1152.54,
+    "date": "2026-02-19",
+    "description_de": "Konferenzticket Data Engineering Summit 2026",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Satz 1 EStG",
+      "reasoning": "Fachkonferenz mit beruflichem Bezug — beruflich veranlasste Fortbildungskosten."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-037",
+    "merchant": "1&1",
+    "amount_eur": 60.87,
+    "date": "2026-02-21",
+    "description_de": "Handyvertrag Familie Monatsbeitrag",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Privater Telekommunikationsvertrag ohne nachgewiesenen beruflichen Anteil."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-038",
+    "merchant": "Deutschlandticket",
+    "amount_eur": 217.3,
+    "date": "2026-02-22",
+    "description_de": "Deutschlandticket, Arbeitsweg",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Nr. 4 EStG",
+      "reasoning": "Wege zwischen Wohnung und erster Tätigkeitsstätte — Entfernungspauschale."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-039",
+    "merchant": "EDEKA",
+    "amount_eur": 73.9,
+    "date": "2026-02-26",
+    "description_de": "Einkauf Obst, Gemüse, Milchprodukte",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Private Lebenshaltungskosten, nicht abziehbar (§ 12 Nr. 1 EStG)."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-040",
+    "merchant": "Kaufland",
+    "amount_eur": 23.36,
+    "date": "2026-02-26",
+    "description_de": "Lebensmittel und Getränke",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Private Lebenshaltungskosten, nicht abziehbar (§ 12 Nr. 1 EStG)."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-041",
+    "merchant": "Deutsche Bahn AG",
+    "amount_eur": 104.33,
+    "date": "2026-03-01",
+    "description_de": "ICE-Ticket Dienstreise Projektstandort Köln, vom Arbeitgeber nicht erstattet",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Satz 1 EStG",
+      "reasoning": "Beruflich veranlasste Auswärtstätigkeit, nicht vom Arbeitgeber erstattet — Reisekosten als Werbungskosten."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-042",
+    "merchant": "Amazon.de",
+    "amount_eur": 96.03,
+    "date": "2026-03-01",
+    "description_de": "Hundefutter Großpackung",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Privater Konsum über Online-Marktplatz."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-043",
+    "merchant": "EDEKA",
+    "amount_eur": 77.36,
+    "date": "2026-03-03",
+    "description_de": "Wocheneinkauf Lebensmittel",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Private Lebenshaltungskosten, nicht abziehbar (§ 12 Nr. 1 EStG)."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-044",
+    "merchant": "Hausverwaltung Meier GmbH",
+    "amount_eur": 769.11,
+    "date": "2026-03-03",
+    "description_de": "Kaltmiete inkl. Nebenkosten",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Miete der Privatwohnung ist Lebensführung; kein häusliches Arbeitszimmer geltend gemacht."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-045",
+    "merchant": "E.ON Energie",
+    "amount_eur": 261.21,
+    "date": "2026-03-05",
+    "description_de": "Jahresabrechnung Strom",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Privater Energieverbrauch, nicht beruflich veranlasst."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-046",
+    "merchant": "Netflix",
+    "amount_eur": 9.4,
+    "date": "2026-03-06",
+    "description_de": "Monatsabo Streaming",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Privates Unterhaltungsabo ohne beruflichen Bezug."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-047",
+    "merchant": "Vapiano",
+    "amount_eur": 68.87,
+    "date": "2026-03-06",
+    "description_de": "Abendessen mit Freunden",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Privates Essen, keine beruflich veranlasste Bewirtung."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-048",
+    "merchant": "Udemy",
+    "amount_eur": 44.65,
+    "date": "2026-03-09",
+    "description_de": "Online-Kurs Aquarellmalerei für Anfänger",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Hobbykurs ohne Bezug zum ausgeübten Beruf."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-049",
+    "merchant": "Datacamp",
+    "amount_eur": 462.79,
+    "date": "2026-03-09",
+    "description_de": "Abo Weiterbildung berufliche Skills",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Satz 1 EStG",
+      "reasoning": "Fortbildung im ausgeübten Beruf — Werbungskosten nach der Generalklausel."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-050",
+    "merchant": "EDEKA",
+    "amount_eur": 43.61,
+    "date": "2026-03-11",
+    "description_de": "Lebensmittel und Getränke",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Private Lebenshaltungskosten, nicht abziehbar (§ 12 Nr. 1 EStG)."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-051",
+    "merchant": "Expert",
+    "amount_eur": 1068.05,
+    "date": "2026-03-13",
+    "description_de": "Bluetooth-Lautsprecher",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Privates Konsumgut ohne berufliche Veranlassung."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-052",
+    "merchant": "Marburger Bund",
+    "amount_eur": 243.64,
+    "date": "2026-03-15",
+    "description_de": "Jahresbeitrag Berufsverband",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Nr. 3 EStG",
+      "reasoning": "Beiträge zu Berufsverbänden und Gewerkschaften sind in voller Höhe abziehbar."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-053",
+    "merchant": "Rossmann",
+    "amount_eur": 54.36,
+    "date": "2026-03-16",
+    "description_de": "Haushaltsartikel",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Private Lebensführung, kein beruflicher Anlass."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-054",
+    "merchant": "Kaufland",
+    "amount_eur": 108.14,
+    "date": "2026-03-17",
+    "description_de": "Wocheneinkauf Lebensmittel",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Private Lebenshaltungskosten, nicht abziehbar (§ 12 Nr. 1 EStG)."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-055",
+    "merchant": "Bäckerei Steinecke",
+    "amount_eur": 8.86,
+    "date": "2026-03-19",
+    "description_de": "Frühstück am Arbeitsplatz",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Verpflegung am eigenen Arbeitsplatz ist Lebensführung; nur bei Auswärtstätigkeit gäbe es Pauschalen."
+    },
+    "ambiguous": true
+  },
+  {
+    "id": "TX-056",
+    "merchant": "Praxis-Textil GmbH",
+    "amount_eur": 194.86,
+    "date": "2026-03-19",
+    "description_de": "Sicherheitsschuhe S3 mit Stahlkappe",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Nr. 6 EStG",
+      "reasoning": "Typische Berufskleidung, private Nutzung praktisch ausgeschlossen — Arbeitsmittel."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-057",
+    "merchant": "dm-drogerie markt",
+    "amount_eur": 28.45,
+    "date": "2026-03-21",
+    "description_de": "Shampoo, Zahnpasta, Waschmittel",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Private Lebensführung, kein beruflicher Anlass."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-058",
+    "merchant": "FitX",
+    "amount_eur": 24.35,
+    "date": "2026-03-27",
+    "description_de": "Mitgliedsbeitrag Fitnessstudio",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Sport ist private Lebensführung, kein Berufsverband im Sinne des § 9 Abs. 1 Nr. 3 EStG."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-059",
+    "merchant": "Hugendubel",
+    "amount_eur": 44.97,
+    "date": "2026-04-03",
+    "description_de": "Krimi-Bestseller und Kinderbuch",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Belletristik und private Lektüre, kein Arbeitsmittel."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-060",
+    "merchant": "Burgermeister",
+    "amount_eur": 78.16,
+    "date": "2026-04-04",
+    "description_de": "Mittagessen privat",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Privates Essen, keine beruflich veranlasste Bewirtung."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-061",
+    "merchant": "VHV Berufshaftpflicht",
+    "amount_eur": 75.65,
+    "date": "2026-04-12",
+    "description_de": "Jahresbeitrag Diensthaftpflicht Lehrkraft",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Satz 1 EStG",
+      "reasoning": "Versicherung deckt ausschließlich berufliche Risiken — Werbungskosten."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-062",
+    "merchant": "Friseursalon Lang",
+    "amount_eur": 76.51,
+    "date": "2026-04-14",
+    "description_de": "Haarschnitt vor Vorstellungsgespräch",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Körperpflege ist Lebensführung, auch mit beruflichem Anlass nicht abziehbar."
+    },
+    "ambiguous": true
+  },
+  {
+    "id": "TX-063",
+    "merchant": "Friseursalon Lang",
+    "amount_eur": 55.66,
+    "date": "2026-04-16",
+    "description_de": "Maniküre",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Körperpflege ist Lebensführung, auch mit beruflichem Anlass nicht abziehbar."
+    },
+    "ambiguous": true
+  },
+  {
+    "id": "TX-064",
+    "merchant": "Lidl",
+    "amount_eur": 91.06,
+    "date": "2026-04-17",
+    "description_de": "Abendeinkauf Lebensmittel",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Private Lebenshaltungskosten, nicht abziehbar (§ 12 Nr. 1 EStG)."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-065",
+    "merchant": "XXXLutz",
+    "amount_eur": 217.43,
+    "date": "2026-04-19",
+    "description_de": "Bettgestell und Matratze",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Privates Wohnmobiliar, keine berufliche Veranlassung."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-066",
+    "merchant": "MediaMarkt",
+    "amount_eur": 402.21,
+    "date": "2026-04-24",
+    "description_de": "Externer Monitor 27\" für den Arbeitsplatz im Homeoffice",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Nr. 6 EStG",
+      "reasoning": "Peripherie überwiegend beruflich genutzt — Arbeitsmittel."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-067",
+    "merchant": "Deutschlandticket",
+    "amount_eur": 167.16,
+    "date": "2026-04-25",
+    "description_de": "Monatskarte Fahrt Wohnung–Arbeitsstätte",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Nr. 4 EStG",
+      "reasoning": "Wege zwischen Wohnung und erster Tätigkeitsstätte — Entfernungspauschale."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-068",
+    "merchant": "Deutsche Bahn AG",
+    "amount_eur": 86.25,
+    "date": "2026-04-26",
+    "description_de": "Monatskarte Fahrt Wohnung–Arbeitsstätte",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Nr. 4 EStG",
+      "reasoning": "Wege zwischen Wohnung und erster Tätigkeitsstätte — Entfernungspauschale."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-069",
+    "merchant": "Müller Drogerie",
+    "amount_eur": 35.99,
+    "date": "2026-04-28",
+    "description_de": "Shampoo, Zahnpasta, Waschmittel",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Private Lebensführung, kein beruflicher Anlass."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-070",
+    "merchant": "Amazon.de",
+    "amount_eur": 40.09,
+    "date": "2026-05-01",
+    "description_de": "Roman, Taschenbuch",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Belletristik und private Lektüre, kein Arbeitsmittel."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-071",
+    "merchant": "Deutsche Wohnen",
+    "amount_eur": 723.45,
+    "date": "2026-05-03",
+    "description_de": "Monatsmiete Wohnung",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Miete der Privatwohnung ist Lebensführung; kein häusliches Arbeitszimmer geltend gemacht."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-072",
+    "merchant": "ALDI SÜD",
+    "amount_eur": 85.55,
+    "date": "2026-05-04",
+    "description_de": "Abendeinkauf Lebensmittel",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Private Lebenshaltungskosten, nicht abziehbar (§ 12 Nr. 1 EStG)."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-073",
+    "merchant": "Notebooksbilliger",
+    "amount_eur": 1004.18,
+    "date": "2026-05-04",
+    "description_de": "Notebook für Arbeit im Homeoffice, wird abends auch privat genutzt",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Nr. 6 EStG",
+      "reasoning": "Gemischt genutztes Arbeitsmittel: der berufliche Anteil ist nach objektivem Aufteilungsmaßstab abziehbar."
+    },
+    "ambiguous": true
+  },
+  {
+    "id": "TX-074",
+    "merchant": "ADAC Fahrsicherheitszentrum",
+    "amount_eur": 218.89,
+    "date": "2026-05-05",
+    "description_de": "Modul Weiterbildung nach BKrFQG",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Satz 1 EStG",
+      "reasoning": "Gesetzlich vorgeschriebene berufliche Pflichtfortbildung."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-075",
+    "merchant": "ADAC e.V.",
+    "amount_eur": 62.57,
+    "date": "2026-05-05",
+    "description_de": "Fördermitgliedschaft Jahresbeitrag",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Kein Berufsverband — ADAC ist privat, Spenden sind Sonderausgaben, keine Werbungskosten."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-076",
+    "merchant": "Sky Deutschland",
+    "amount_eur": 21.75,
+    "date": "2026-05-05",
+    "description_de": "Musik-Abo Monatsbeitrag",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Privates Unterhaltungsabo ohne beruflichen Bezug."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-077",
+    "merchant": "EDEKA",
+    "amount_eur": 98.53,
+    "date": "2026-05-06",
+    "description_de": "Wocheneinkauf inkl. Drogerieartikel",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Private Lebenshaltungskosten, nicht abziehbar (§ 12 Nr. 1 EStG)."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-078",
+    "merchant": "GEWOBAG",
+    "amount_eur": 781.57,
+    "date": "2026-05-07",
+    "description_de": "Monatsmiete 2-Zimmer-Wohnung",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Miete der Privatwohnung ist Lebensführung; kein häusliches Arbeitszimmer geltend gemacht."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-079",
+    "merchant": "Saturn",
+    "amount_eur": 254.93,
+    "date": "2026-05-08",
+    "description_de": "Tastatur und Maus für den beruflichen Arbeitsplatz",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Nr. 6 EStG",
+      "reasoning": "Peripherie überwiegend beruflich genutzt — Arbeitsmittel."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-080",
+    "merchant": "Shop Apotheke",
+    "amount_eur": 54.08,
+    "date": "2026-05-08",
+    "description_de": "Erkältungsmittel, rezeptfrei",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Krankheitskosten sind allenfalls außergewöhnliche Belastung (§ 33 EStG), keine Werbungskosten."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-081",
+    "merchant": "DAZN",
+    "amount_eur": 20.76,
+    "date": "2026-05-10",
+    "description_de": "Musik-Abo Monatsbeitrag",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Privates Unterhaltungsabo ohne beruflichen Bezug."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-082",
+    "merchant": "Lehmanns Media",
+    "amount_eur": 63.61,
+    "date": "2026-05-11",
+    "description_de": "Nachschlagewerk Arbeitsrecht Kommentar",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Nr. 6 EStG",
+      "reasoning": "Fachliteratur für den ausgeübten Beruf ist Arbeitsmittel."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-083",
+    "merchant": "DGB Bildungswerk",
+    "amount_eur": 1194.22,
+    "date": "2026-05-12",
+    "description_de": "Konferenzticket Data Engineering Summit 2026",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Satz 1 EStG",
+      "reasoning": "Fachkonferenz mit beruflichem Bezug — beruflich veranlasste Fortbildungskosten."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-084",
+    "merchant": "LinkedIn Learning",
+    "amount_eur": 402.02,
+    "date": "2026-05-14",
+    "description_de": "Abo Weiterbildung berufliche Skills",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Satz 1 EStG",
+      "reasoning": "Fortbildung im ausgeübten Beruf — Werbungskosten nach der Generalklausel."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-085",
+    "merchant": "Praxis-Textil GmbH",
+    "amount_eur": 136.25,
+    "date": "2026-05-14",
+    "description_de": "Arztkittel, 3 Stück, mit Praxislogo",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Nr. 6 EStG",
+      "reasoning": "Typische Berufskleidung, private Nutzung praktisch ausgeschlossen — Arbeitsmittel."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-086",
+    "merchant": "Büromöbel Schäfer",
+    "amount_eur": 282.67,
+    "date": "2026-05-18",
+    "description_de": "Aktenschrank für Arbeitsunterlagen",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Nr. 6 EStG",
+      "reasoning": "Arbeitsmittel für die berufliche Tätigkeit; unter der GWG-Grenze sofort voll absetzbar."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-087",
+    "merchant": "Müller Drogerie",
+    "amount_eur": 35.1,
+    "date": "2026-05-19",
+    "description_de": "Haushaltsartikel",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Private Lebensführung, kein beruflicher Anlass."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-088",
+    "merchant": "Telekom Deutschland",
+    "amount_eur": 55.13,
+    "date": "2026-05-20",
+    "description_de": "Handyvertrag Familie Monatsbeitrag",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Privater Telekommunikationsvertrag ohne nachgewiesenen beruflichen Anteil."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-089",
+    "merchant": "Datacamp",
+    "amount_eur": 834.73,
+    "date": "2026-05-21",
+    "description_de": "Zertifikatskurs Projektmanagement (PMP), berufsbegleitend",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Satz 1 EStG",
+      "reasoning": "Fortbildung im ausgeübten Beruf — Werbungskosten nach der Generalklausel."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-090",
+    "merchant": "Shell",
+    "amount_eur": 71.82,
+    "date": "2026-05-22",
+    "description_de": "Tankfüllung, überwiegend private Fahrten",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Private Fahrten; der Arbeitsweg ist bereits über die Entfernungspauschale abgegolten."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-091",
+    "merchant": "Büromöbel Schäfer",
+    "amount_eur": 334.41,
+    "date": "2026-05-23",
+    "description_de": "Schreibtischlampe und Monitorhalterung für Arbeitsplatz",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Nr. 6 EStG",
+      "reasoning": "Arbeitsmittel für die berufliche Tätigkeit; unter der GWG-Grenze sofort voll absetzbar."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-092",
+    "merchant": "Fotostudio Klein",
+    "amount_eur": 37.67,
+    "date": "2026-05-27",
+    "description_de": "Premium-Abo zur Jobsuche, 3 Monate",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Satz 1 EStG",
+      "reasoning": "Bewerbungskosten sind auch ohne Erfolg der Bewerbung Werbungskosten."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-093",
+    "merchant": "ALDI SÜD",
+    "amount_eur": 94.07,
+    "date": "2026-06-02",
+    "description_de": "Wocheneinkauf inkl. Drogerieartikel",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Private Lebenshaltungskosten, nicht abziehbar (§ 12 Nr. 1 EStG)."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-094",
+    "merchant": "Amazon.de",
+    "amount_eur": 101.93,
+    "date": "2026-06-02",
+    "description_de": "Gartenschlauch und Blumenerde",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Privater Konsum über Online-Marktplatz."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-095",
+    "merchant": "HVV Hamburg",
+    "amount_eur": 187.6,
+    "date": "2026-06-03",
+    "description_de": "Monatskarte Fahrt Wohnung–Arbeitsstätte",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Nr. 4 EStG",
+      "reasoning": "Wege zwischen Wohnung und erster Tätigkeitsstätte — Entfernungspauschale."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-096",
+    "merchant": "E.ON Energie",
+    "amount_eur": 71.02,
+    "date": "2026-06-04",
+    "description_de": "Jahresabrechnung Strom",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Privater Energieverbrauch, nicht beruflich veranlasst."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-097",
+    "merchant": "Urban Sports Club",
+    "amount_eur": 48.15,
+    "date": "2026-06-06",
+    "description_de": "Mitgliedsbeitrag Fitnessstudio",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Sport ist private Lebensführung, kein Berufsverband im Sinne des § 9 Abs. 1 Nr. 3 EStG."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-098",
+    "merchant": "Zalando",
+    "amount_eur": 182.07,
+    "date": "2026-06-06",
+    "description_de": "Blazer für den Job",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Bürgerliche Kleidung ist auch bei beruflichem Anlass nicht abziehbar (§ 12 Nr. 1 EStG, BFH GrS 1/16)."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-099",
+    "merchant": "Beck-Shop",
+    "amount_eur": 149.47,
+    "date": "2026-06-07",
+    "description_de": "Nachschlagewerk Arbeitsrecht Kommentar",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Nr. 6 EStG",
+      "reasoning": "Fachliteratur für den ausgeübten Beruf ist Arbeitsmittel."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-100",
+    "merchant": "Netto Marken-Discount",
+    "amount_eur": 39.83,
+    "date": "2026-06-09",
+    "description_de": "Abendeinkauf Lebensmittel",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Private Lebenshaltungskosten, nicht abziehbar (§ 12 Nr. 1 EStG)."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-101",
+    "merchant": "Deutsche Bahn AG",
+    "amount_eur": 155.01,
+    "date": "2026-06-15",
+    "description_de": "Bahnfahrt zur Auswärtstätigkeit beim Kunden in Frankfurt",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Satz 1 EStG",
+      "reasoning": "Beruflich veranlasste Auswärtstätigkeit, nicht vom Arbeitgeber erstattet — Reisekosten als Werbungskosten."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-102",
+    "merchant": "Büromöbel Schäfer",
+    "amount_eur": 628.18,
+    "date": "2026-06-16",
+    "description_de": "Schreibtischlampe und Monitorhalterung für Arbeitsplatz",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Nr. 6 EStG",
+      "reasoning": "Arbeitsmittel für die berufliche Tätigkeit; unter der GWG-Grenze sofort voll absetzbar."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-103",
+    "merchant": "Amazon.de",
+    "amount_eur": 106.27,
+    "date": "2026-06-16",
+    "description_de": "Kaffeekapseln und Waschmittel",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Privater Konsum über Online-Marktplatz."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-104",
+    "merchant": "VHV Berufshaftpflicht",
+    "amount_eur": 187.86,
+    "date": "2026-06-19",
+    "description_de": "Beitrag Berufshaftpflichtversicherung für die angestellte Tätigkeit",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Satz 1 EStG",
+      "reasoning": "Versicherung deckt ausschließlich berufliche Risiken — Werbungskosten."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-105",
+    "merchant": "Saturn",
+    "amount_eur": 513.67,
+    "date": "2026-06-20",
+    "description_de": "Kaffeevollautomat für die Küche",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Privates Konsumgut ohne berufliche Veranlassung."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-106",
+    "merchant": "H&M",
+    "amount_eur": 409.87,
+    "date": "2026-06-21",
+    "description_de": "Anzug für das Büro",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Bürgerliche Kleidung ist auch bei beruflichem Anlass nicht abziehbar (§ 12 Nr. 1 EStG, BFH GrS 1/16)."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-107",
+    "merchant": "Saturn",
+    "amount_eur": 881.04,
+    "date": "2026-06-24",
+    "description_de": "Fernseher 55 Zoll für das Wohnzimmer",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Privates Konsumgut ohne berufliche Veranlassung."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-108",
+    "merchant": "Netto Marken-Discount",
+    "amount_eur": 54.28,
+    "date": "2026-06-27",
+    "description_de": "Wocheneinkauf inkl. Drogerieartikel",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Private Lebenshaltungskosten, nicht abziehbar (§ 12 Nr. 1 EStG)."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-109",
+    "merchant": "FitX",
+    "amount_eur": 35.38,
+    "date": "2026-06-27",
+    "description_de": "Monatsbeitrag Sportclub",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Sport ist private Lebensführung, kein Berufsverband im Sinne des § 9 Abs. 1 Nr. 3 EStG."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-110",
+    "merchant": "Coursera",
+    "amount_eur": 31.33,
+    "date": "2026-07-05",
+    "description_de": "Zertifikatskurs Projektmanagement (PMP), berufsbegleitend",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Satz 1 EStG",
+      "reasoning": "Fortbildung im ausgeübten Beruf — Werbungskosten nach der Generalklausel."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-111",
+    "merchant": "TÜV SÜD",
+    "amount_eur": 340.73,
+    "date": "2026-07-07",
+    "description_de": "Pflichtschulung Ladungssicherung für Berufskraftfahrer",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Satz 1 EStG",
+      "reasoning": "Gesetzlich vorgeschriebene berufliche Pflichtfortbildung."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-112",
+    "merchant": "Büromöbel Schäfer",
+    "amount_eur": 557.34,
+    "date": "2026-07-07",
+    "description_de": "Ergonomischer Bürostuhl für Arbeitsplatz im Homeoffice",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Nr. 6 EStG",
+      "reasoning": "Arbeitsmittel für die berufliche Tätigkeit; unter der GWG-Grenze sofort voll absetzbar."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-113",
+    "merchant": "Allianz Versicherung",
+    "amount_eur": 24.79,
+    "date": "2026-07-08",
+    "description_de": "Beitrag Hausratversicherung",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Private Versicherung — allenfalls Sonderausgabe, keine Werbungskosten."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-114",
+    "merchant": "Coursera",
+    "amount_eur": 265.5,
+    "date": "2026-07-09",
+    "description_de": "Zertifikatskurs Projektmanagement (PMP), berufsbegleitend",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Satz 1 EStG",
+      "reasoning": "Fortbildung im ausgeübten Beruf — Werbungskosten nach der Generalklausel."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-115",
+    "merchant": "Trattoria da Vinci",
+    "amount_eur": 38.63,
+    "date": "2026-07-09",
+    "description_de": "Geburtstagsessen Familie",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Privates Essen, keine beruflich veranlasste Bewirtung."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-116",
+    "merchant": "Lohnsteuerhilfeverein Bayern e.V.",
+    "amount_eur": 145.72,
+    "date": "2026-07-10",
+    "description_de": "Jahresbeitrag Lohnsteuerhilfeverein, Ermittlung der Einkünfte aus nichtselbständiger Arbeit",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Satz 1 EStG",
+      "reasoning": "Kosten der Ermittlung der Einkünfte aus nichtselbständiger Arbeit sind Werbungskosten (AMBIG: nur der einkünftebezogene Anteil)."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-117",
+    "merchant": "Vodafone",
+    "amount_eur": 88.68,
+    "date": "2026-07-11",
+    "description_de": "Internet- und Telefonrechnung, beruflicher Nutzungsanteil 40 % im Homeoffice nachgewiesen",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Satz 1 EStG",
+      "reasoning": "Nachgewiesener beruflicher Nutzungsanteil an Telekommunikationskosten ist abziehbar."
+    },
+    "ambiguous": true
+  },
+  {
+    "id": "TX-118",
+    "merchant": "Müller Drogerie",
+    "amount_eur": 32.79,
+    "date": "2026-07-11",
+    "description_de": "Shampoo, Zahnpasta, Waschmittel",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Private Lebensführung, kein beruflicher Anlass."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-119",
+    "merchant": "GEWOBAG",
+    "amount_eur": 1193.35,
+    "date": "2026-07-12",
+    "description_de": "Kaltmiete inkl. Nebenkosten",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Miete der Privatwohnung ist Lebensführung; kein häusliches Arbeitszimmer geltend gemacht."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-120",
+    "merchant": "Deutsche Bahn AG",
+    "amount_eur": 44.23,
+    "date": "2026-07-15",
+    "description_de": "Wochenendtrip mit Partnerin",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Private Reise ohne beruflichen Anlass."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-121",
+    "merchant": "IG Metall",
+    "amount_eur": 141.27,
+    "date": "2026-07-18",
+    "description_de": "Jahresbeitrag Berufsverband",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Nr. 3 EStG",
+      "reasoning": "Beiträge zu Berufsverbänden und Gewerkschaften sind in voller Höhe abziehbar."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-122",
+    "merchant": "Bäckerei Steinecke",
+    "amount_eur": 10.07,
+    "date": "2026-07-20",
+    "description_de": "Mittagessen in der Betriebskantine",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Verpflegung am eigenen Arbeitsplatz ist Lebensführung; nur bei Auswärtstätigkeit gäbe es Pauschalen."
+    },
+    "ambiguous": true
+  },
+  {
+    "id": "TX-123",
+    "merchant": "Web Summit GmbH",
+    "amount_eur": 1151.02,
+    "date": "2026-07-20",
+    "description_de": "Teilnahmegebühr Fachkonferenz IT-Sicherheit",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Satz 1 EStG",
+      "reasoning": "Fachkonferenz mit beruflichem Bezug — beruflich veranlasste Fortbildungskosten."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-124",
+    "merchant": "REWE",
+    "amount_eur": 49.73,
+    "date": "2026-07-24",
+    "description_de": "Lebensmittel und Getränke",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Private Lebenshaltungskosten, nicht abziehbar (§ 12 Nr. 1 EStG)."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-125",
+    "merchant": "Eurowings",
+    "amount_eur": 297.94,
+    "date": "2026-07-26",
+    "description_de": "Flug Mallorca Urlaub",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Private Reise ohne beruflichen Anlass."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-126",
+    "merchant": "Hugendubel",
+    "amount_eur": 38.7,
+    "date": "2026-08-02",
+    "description_de": "Krimi-Bestseller und Kinderbuch",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Belletristik und private Lektüre, kein Arbeitsmittel."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-127",
+    "merchant": "Müller Drogerie",
+    "amount_eur": 10.45,
+    "date": "2026-08-03",
+    "description_de": "Haushaltsartikel",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Private Lebensführung, kein beruflicher Anlass."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-128",
+    "merchant": "Lidl",
+    "amount_eur": 44.04,
+    "date": "2026-08-05",
+    "description_de": "Einkauf Obst, Gemüse, Milchprodukte",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Private Lebenshaltungskosten, nicht abziehbar (§ 12 Nr. 1 EStG)."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-129",
+    "merchant": "Aral",
+    "amount_eur": 51.57,
+    "date": "2026-08-05",
+    "description_de": "Tankfüllung, überwiegend private Fahrten",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Private Fahrten; der Arbeitsweg ist bereits über die Entfernungspauschale abgegolten."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-130",
+    "merchant": "Sushi Palace",
+    "amount_eur": 52.86,
+    "date": "2026-08-11",
+    "description_de": "Essen am Wochenende",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Privates Essen, keine beruflich veranlasste Bewirtung."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-131",
+    "merchant": "Notebooksbilliger",
+    "amount_eur": 1543.91,
+    "date": "2026-08-11",
+    "description_de": "Tablet, beruflich für Dokumentation, privat zum Streamen",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Nr. 6 EStG",
+      "reasoning": "Gemischt genutztes Arbeitsmittel: der berufliche Anteil ist nach objektivem Aufteilungsmaßstab abziehbar."
+    },
+    "ambiguous": true
+  },
+  {
+    "id": "TX-132",
+    "merchant": "Amazon.de",
+    "amount_eur": 42.65,
+    "date": "2026-08-17",
+    "description_de": "Laptopständer und Kabelkanal für den Arbeitsplatz",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Nr. 6 EStG",
+      "reasoning": "Büromaterial und Arbeitsmittel für die berufliche Tätigkeit."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-133",
+    "merchant": "FlixBus",
+    "amount_eur": 263.71,
+    "date": "2026-08-17",
+    "description_de": "Flug Mallorca Urlaub",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Private Reise ohne beruflichen Anlass."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-134",
+    "merchant": "GEWOBAG",
+    "amount_eur": 1175.65,
+    "date": "2026-08-18",
+    "description_de": "Monatsmiete 2-Zimmer-Wohnung",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Miete der Privatwohnung ist Lebensführung; kein häusliches Arbeitszimmer geltend gemacht."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-135",
+    "merchant": "Vapiano",
+    "amount_eur": 62.15,
+    "date": "2026-08-23",
+    "description_de": "Mittagessen privat",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Privates Essen, keine beruflich veranlasste Bewirtung."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-136",
+    "merchant": "HVV Hamburg",
+    "amount_eur": 105.52,
+    "date": "2026-08-25",
+    "description_de": "Jobticket Monatsbeitrag Pendelstrecke",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Nr. 4 EStG",
+      "reasoning": "Wege zwischen Wohnung und erster Tätigkeitsstätte — Entfernungspauschale."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-137",
+    "merchant": "Greenpeace e.V.",
+    "amount_eur": 65.22,
+    "date": "2026-08-26",
+    "description_de": "Fördermitgliedschaft Jahresbeitrag",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Kein Berufsverband — ADAC ist privat, Spenden sind Sonderausgaben, keine Werbungskosten."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-138",
+    "merchant": "Copyshop Print24",
+    "amount_eur": 36.23,
+    "date": "2026-08-26",
+    "description_de": "Bewerbungsfotos für Bewerbungsunterlagen",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Satz 1 EStG",
+      "reasoning": "Bewerbungskosten sind auch ohne Erfolg der Bewerbung Werbungskosten."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-139",
+    "merchant": "Netflix",
+    "amount_eur": 13.42,
+    "date": "2026-08-27",
+    "description_de": "Musik-Abo Monatsbeitrag",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Privates Unterhaltungsabo ohne beruflichen Bezug."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-140",
+    "merchant": "REWE",
+    "amount_eur": 114.21,
+    "date": "2026-08-27",
+    "description_de": "Lebensmittel und Getränke",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Private Lebenshaltungskosten, nicht abziehbar (§ 12 Nr. 1 EStG)."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-141",
+    "merchant": "Sushi Palace",
+    "amount_eur": 34.19,
+    "date": "2026-09-03",
+    "description_de": "Essen am Wochenende",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Privates Essen, keine beruflich veranlasste Bewirtung."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-142",
+    "merchant": "EDEKA",
+    "amount_eur": 49.99,
+    "date": "2026-09-04",
+    "description_de": "Wocheneinkauf Lebensmittel",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Private Lebenshaltungskosten, nicht abziehbar (§ 12 Nr. 1 EStG)."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-143",
+    "merchant": "Penny",
+    "amount_eur": 36.03,
+    "date": "2026-09-05",
+    "description_de": "Wocheneinkauf Lebensmittel",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Private Lebenshaltungskosten, nicht abziehbar (§ 12 Nr. 1 EStG)."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-144",
+    "merchant": "Amazon.de",
+    "amount_eur": 64.21,
+    "date": "2026-09-06",
+    "description_de": "Druckerpapier und Toner für den beruflichen Schriftverkehr",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Nr. 6 EStG",
+      "reasoning": "Büromaterial und Arbeitsmittel für die berufliche Tätigkeit."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-145",
+    "merchant": "Deutsche Bahn AG",
+    "amount_eur": 127.9,
+    "date": "2026-09-08",
+    "description_de": "Bahnfahrt zur Auswärtstätigkeit beim Kunden in Frankfurt",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Satz 1 EStG",
+      "reasoning": "Beruflich veranlasste Auswärtstätigkeit, nicht vom Arbeitgeber erstattet — Reisekosten als Werbungskosten."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-146",
+    "merchant": "LinkedIn Learning",
+    "amount_eur": 35.58,
+    "date": "2026-09-09",
+    "description_de": "Abo Weiterbildung berufliche Skills",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Satz 1 EStG",
+      "reasoning": "Fortbildung im ausgeübten Beruf — Werbungskosten nach der Generalklausel."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-147",
+    "merchant": "REWE",
+    "amount_eur": 104.82,
+    "date": "2026-09-10",
+    "description_de": "Abendeinkauf Lebensmittel",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Private Lebenshaltungskosten, nicht abziehbar (§ 12 Nr. 1 EStG)."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-148",
+    "merchant": "JET Tankstelle",
+    "amount_eur": 48.16,
+    "date": "2026-09-10",
+    "description_de": "Tankfüllung, überwiegend private Fahrten",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Private Fahrten; der Arbeitsweg ist bereits über die Entfernungspauschale abgegolten."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-149",
+    "merchant": "BVG Berlin",
+    "amount_eur": 106.29,
+    "date": "2026-09-12",
+    "description_de": "Deutschlandticket, Arbeitsweg",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Nr. 4 EStG",
+      "reasoning": "Wege zwischen Wohnung und erster Tätigkeitsstätte — Entfernungspauschale."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-150",
+    "merchant": "IG Metall",
+    "amount_eur": 19.31,
+    "date": "2026-09-13",
+    "description_de": "Gewerkschaftsbeitrag Monatsbeitrag",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Nr. 3 EStG",
+      "reasoning": "Beiträge zu Berufsverbänden und Gewerkschaften sind in voller Höhe abziehbar."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-151",
+    "merchant": "Höffner",
+    "amount_eur": 229.77,
+    "date": "2026-09-14",
+    "description_de": "Sofa für das Wohnzimmer",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Privates Wohnmobiliar, keine berufliche Veranlassung."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-152",
+    "merchant": "Burgermeister",
+    "amount_eur": 30.8,
+    "date": "2026-09-15",
+    "description_de": "Abendessen mit Freunden",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Privates Essen, keine beruflich veranlasste Bewirtung."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-153",
+    "merchant": "IG Metall",
+    "amount_eur": 239.2,
+    "date": "2026-09-16",
+    "description_de": "Jahresbeitrag Berufsverband",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Nr. 3 EStG",
+      "reasoning": "Beiträge zu Berufsverbänden und Gewerkschaften sind in voller Höhe abziehbar."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-154",
+    "merchant": "dm-drogerie markt",
+    "amount_eur": 18.78,
+    "date": "2026-09-17",
+    "description_de": "Haushaltsartikel",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Private Lebensführung, kein beruflicher Anlass."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-155",
+    "merchant": "Stadt München Kita-Beiträge",
+    "amount_eur": 314.3,
+    "date": "2026-09-18",
+    "description_de": "Monatsbeitrag Kinderbetreuung",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Kinderbetreuung ist Sonderausgabe (§ 10 Abs. 1 Nr. 5 EStG), keine Werbungskosten."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-156",
+    "merchant": "MediaMarkt",
+    "amount_eur": 814.79,
+    "date": "2026-09-19",
+    "description_de": "Kaffeevollautomat für die Küche",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Privates Konsumgut ohne berufliche Veranlassung."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-157",
+    "merchant": "Hugendubel",
+    "amount_eur": 52.3,
+    "date": "2026-09-22",
+    "description_de": "Fachbuch 'Designing Data-Intensive Applications'",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Nr. 6 EStG",
+      "reasoning": "Fachliteratur für den ausgeübten Beruf ist Arbeitsmittel."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-158",
+    "merchant": "Taxfix",
+    "amount_eur": 97.63,
+    "date": "2026-09-24",
+    "description_de": "Jahresbeitrag Lohnsteuerhilfeverein, Ermittlung der Einkünfte aus nichtselbständiger Arbeit",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Satz 1 EStG",
+      "reasoning": "Kosten der Ermittlung der Einkünfte aus nichtselbständiger Arbeit sind Werbungskosten (AMBIG: nur der einkünftebezogene Anteil)."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-159",
+    "merchant": "Shop Apotheke",
+    "amount_eur": 7.89,
+    "date": "2026-09-26",
+    "description_de": "Zuzahlung verschreibungspflichtiges Medikament",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Krankheitskosten sind allenfalls außergewöhnliche Belastung (§ 33 EStG), keine Werbungskosten."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-160",
+    "merchant": "Sushi Palace",
+    "amount_eur": 26.07,
+    "date": "2026-10-05",
+    "description_de": "Mittagessen privat",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Privates Essen, keine beruflich veranlasste Bewirtung."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-161",
+    "merchant": "GEWOBAG",
+    "amount_eur": 676.09,
+    "date": "2026-10-11",
+    "description_de": "Kaltmiete inkl. Nebenkosten",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Miete der Privatwohnung ist Lebensführung; kein häusliches Arbeitszimmer geltend gemacht."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-162",
+    "merchant": "Deutsche Bahn AG",
+    "amount_eur": 210.25,
+    "date": "2026-10-12",
+    "description_de": "Jobticket Monatsbeitrag Pendelstrecke",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Nr. 4 EStG",
+      "reasoning": "Wege zwischen Wohnung und erster Tätigkeitsstätte — Entfernungspauschale."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-163",
+    "merchant": "Deutsche Bahn AG",
+    "amount_eur": 290.54,
+    "date": "2026-10-12",
+    "description_de": "ICE-Ticket Urlaubsreise nach Hamburg",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Private Reise ohne beruflichen Anlass."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-164",
+    "merchant": "MediaMarkt",
+    "amount_eur": 742.04,
+    "date": "2026-10-14",
+    "description_de": "Spielekonsole und zwei Spiele",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Privates Konsumgut ohne berufliche Veranlassung."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-165",
+    "merchant": "Vattenfall",
+    "amount_eur": 100.98,
+    "date": "2026-10-15",
+    "description_de": "Jahresabrechnung Strom",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Privater Energieverbrauch, nicht beruflich veranlasst."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-166",
+    "merchant": "Zara",
+    "amount_eur": 134.92,
+    "date": "2026-10-16",
+    "description_de": "Business-Hemd und Hose",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Bürgerliche Kleidung ist auch bei beruflichem Anlass nicht abziehbar (§ 12 Nr. 1 EStG, BFH GrS 1/16)."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-167",
+    "merchant": "Coursera",
+    "amount_eur": 864.05,
+    "date": "2026-10-17",
+    "description_de": "Online-Kurs Advanced SQL für Datenanalyse",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Satz 1 EStG",
+      "reasoning": "Fortbildung im ausgeübten Beruf — Werbungskosten nach der Generalklausel."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-168",
+    "merchant": "Saturn",
+    "amount_eur": 1225.69,
+    "date": "2026-10-17",
+    "description_de": "Bluetooth-Lautsprecher",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Privates Konsumgut ohne berufliche Veranlassung."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-169",
+    "merchant": "Telekom Deutschland",
+    "amount_eur": 77.84,
+    "date": "2026-10-18",
+    "description_de": "Mobilfunkrechnung, nachgewiesen zu 50 % beruflich genutzt (Rufbereitschaft)",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Satz 1 EStG",
+      "reasoning": "Nachgewiesener beruflicher Nutzungsanteil an Telekommunikationskosten ist abziehbar."
+    },
+    "ambiguous": true
+  },
+  {
+    "id": "TX-170",
+    "merchant": "Fotostudio Klein",
+    "amount_eur": 52.9,
+    "date": "2026-10-20",
+    "description_de": "Druck und Bindung von 12 Bewerbungsmappen",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Satz 1 EStG",
+      "reasoning": "Bewerbungskosten sind auch ohne Erfolg der Bewerbung Werbungskosten."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-171",
+    "merchant": "Cyberport",
+    "amount_eur": 298.07,
+    "date": "2026-10-21",
+    "description_de": "Tastatur und Maus für den beruflichen Arbeitsplatz",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Nr. 6 EStG",
+      "reasoning": "Peripherie überwiegend beruflich genutzt — Arbeitsmittel."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-172",
+    "merchant": "H&M",
+    "amount_eur": 275.59,
+    "date": "2026-10-22",
+    "description_de": "Business-Hemd und Hose",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Bürgerliche Kleidung ist auch bei beruflichem Anlass nicht abziehbar (§ 12 Nr. 1 EStG, BFH GrS 1/16)."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-173",
+    "merchant": "Office Discount",
+    "amount_eur": 283.18,
+    "date": "2026-10-24",
+    "description_de": "Ergonomischer Bürostuhl für Arbeitsplatz im Homeoffice",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Nr. 6 EStG",
+      "reasoning": "Arbeitsmittel für die berufliche Tätigkeit; unter der GWG-Grenze sofort voll absetzbar."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-174",
+    "merchant": "Sushi Palace",
+    "amount_eur": 67.39,
+    "date": "2026-10-25",
+    "description_de": "Geburtstagsessen Familie",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Privates Essen, keine beruflich veranlasste Bewirtung."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-175",
+    "merchant": "Amazon.de",
+    "amount_eur": 68.31,
+    "date": "2026-10-26",
+    "description_de": "Kaffeekapseln und Waschmittel",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Privater Konsum über Online-Marktplatz."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-176",
+    "merchant": "Sonnen-Apotheke",
+    "amount_eur": 45.99,
+    "date": "2026-11-02",
+    "description_de": "Zuzahlung verschreibungspflichtiges Medikament",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Krankheitskosten sind allenfalls außergewöhnliche Belastung (§ 33 EStG), keine Werbungskosten."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-177",
+    "merchant": "ALDI SÜD",
+    "amount_eur": 19.45,
+    "date": "2026-11-04",
+    "description_de": "Lebensmittel und Getränke",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Private Lebenshaltungskosten, nicht abziehbar (§ 12 Nr. 1 EStG)."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-178",
+    "merchant": "Amazon.de",
+    "amount_eur": 35.6,
+    "date": "2026-11-09",
+    "description_de": "Kaffeekapseln und Waschmittel",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Privater Konsum über Online-Marktplatz."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-179",
+    "merchant": "Notebooksbilliger",
+    "amount_eur": 1246.09,
+    "date": "2026-11-13",
+    "description_de": "Tablet, beruflich für Dokumentation, privat zum Streamen",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Nr. 6 EStG",
+      "reasoning": "Gemischt genutztes Arbeitsmittel: der berufliche Anteil ist nach objektivem Aufteilungsmaßstab abziehbar."
+    },
+    "ambiguous": true
+  },
+  {
+    "id": "TX-180",
+    "merchant": "Stadt München Kita-Beiträge",
+    "amount_eur": 355.92,
+    "date": "2026-11-16",
+    "description_de": "Essensgeld Kita",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Kinderbetreuung ist Sonderausgabe (§ 10 Abs. 1 Nr. 5 EStG), keine Werbungskosten."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-181",
+    "merchant": "Aral",
+    "amount_eur": 94.07,
+    "date": "2026-11-17",
+    "description_de": "Tankfüllung, überwiegend private Fahrten",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Private Fahrten; der Arbeitsweg ist bereits über die Entfernungspauschale abgegolten."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-182",
+    "merchant": "Spotify AB",
+    "amount_eur": 28.7,
+    "date": "2026-11-18",
+    "description_de": "Musik-Abo Monatsbeitrag",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Privates Unterhaltungsabo ohne beruflichen Bezug."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-183",
+    "merchant": "Amazon.de",
+    "amount_eur": 116.2,
+    "date": "2026-11-18",
+    "description_de": "Gartenschlauch und Blumenerde",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Privater Konsum über Online-Marktplatz."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-184",
+    "merchant": "Skillshare",
+    "amount_eur": 63.29,
+    "date": "2026-11-19",
+    "description_de": "Online-Kurs Aquarellmalerei für Anfänger",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Hobbykurs ohne Bezug zum ausgeübten Beruf."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-185",
+    "merchant": "Datacamp",
+    "amount_eur": 366.25,
+    "date": "2026-11-21",
+    "description_de": "Online-Kurs Advanced SQL für Datenanalyse",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Satz 1 EStG",
+      "reasoning": "Fortbildung im ausgeübten Beruf — Werbungskosten nach der Generalklausel."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-186",
+    "merchant": "XXXLutz",
+    "amount_eur": 712.13,
+    "date": "2026-11-22",
+    "description_de": "Küchenregal und Geschirr",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Privates Wohnmobiliar, keine berufliche Veranlassung."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-187",
+    "merchant": "GEWOBAG",
+    "amount_eur": 1446.15,
+    "date": "2026-11-25",
+    "description_de": "Kaltmiete inkl. Nebenkosten",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Miete der Privatwohnung ist Lebensführung; kein häusliches Arbeitszimmer geltend gemacht."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-188",
+    "merchant": "Amazon.de",
+    "amount_eur": 163.18,
+    "date": "2026-11-27",
+    "description_de": "Fachbuch 'Designing Data-Intensive Applications'",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Nr. 6 EStG",
+      "reasoning": "Fachliteratur für den ausgeübten Beruf ist Arbeitsmittel."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-189",
+    "merchant": "FlixBus",
+    "amount_eur": 94.66,
+    "date": "2026-12-03",
+    "description_de": "ICE-Ticket Urlaubsreise nach Hamburg",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Private Reise ohne beruflichen Anlass."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-190",
+    "merchant": "REWE",
+    "amount_eur": 59.25,
+    "date": "2026-12-07",
+    "description_de": "Abendeinkauf Lebensmittel",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Private Lebenshaltungskosten, nicht abziehbar (§ 12 Nr. 1 EStG)."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-191",
+    "merchant": "Shell",
+    "amount_eur": 63.15,
+    "date": "2026-12-08",
+    "description_de": "Tanken vor dem Wochenendausflug",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Private Fahrten; der Arbeitsweg ist bereits über die Entfernungspauschale abgegolten."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-192",
+    "merchant": "Sushi Palace",
+    "amount_eur": 78.79,
+    "date": "2026-12-10",
+    "description_de": "Mittagessen privat",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Privates Essen, keine beruflich veranlasste Bewirtung."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-193",
+    "merchant": "Sky Deutschland",
+    "amount_eur": 21.28,
+    "date": "2026-12-13",
+    "description_de": "Musik-Abo Monatsbeitrag",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Privates Unterhaltungsabo ohne beruflichen Bezug."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-194",
+    "merchant": "Vapiano",
+    "amount_eur": 142.27,
+    "date": "2026-12-14",
+    "description_de": "Abendessen mit Freunden",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Privates Essen, keine beruflich veranlasste Bewirtung."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-195",
+    "merchant": "IKEA",
+    "amount_eur": 165.2,
+    "date": "2026-12-18",
+    "description_de": "Schreibtischlampe und Monitorhalterung für Arbeitsplatz",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Nr. 6 EStG",
+      "reasoning": "Arbeitsmittel für die berufliche Tätigkeit; unter der GWG-Grenze sofort voll absetzbar."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-196",
+    "merchant": "Restaurant Zur Post",
+    "amount_eur": 267.64,
+    "date": "2026-12-20",
+    "description_de": "Arbeitsessen mit Kunden nach Projektabnahme, Beleg mit Teilnehmerangabe",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Satz 1 EStG",
+      "reasoning": "Beruflich veranlasste Bewirtung mit ordnungsgemäßem Bewirtungsbeleg; beim Arbeitnehmer zu 70 % abziehbar."
+    },
+    "ambiguous": true
+  },
+  {
+    "id": "TX-197",
+    "merchant": "Café Einstein",
+    "amount_eur": 98.58,
+    "date": "2026-12-20",
+    "description_de": "Mittagessen privat",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Privates Essen, keine beruflich veranlasste Bewirtung."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-198",
+    "merchant": "Marburger Bund",
+    "amount_eur": 26.57,
+    "date": "2026-12-20",
+    "description_de": "Gewerkschaftsbeitrag Monatsbeitrag",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Nr. 3 EStG",
+      "reasoning": "Beiträge zu Berufsverbänden und Gewerkschaften sind in voller Höhe abziehbar."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-199",
+    "merchant": "Sky Deutschland",
+    "amount_eur": 9.72,
+    "date": "2026-12-21",
+    "description_de": "Musik-Abo Monatsbeitrag",
+    "ground_truth": {
+      "deductible": false,
+      "statute": null,
+      "reasoning": "Privates Unterhaltungsabo ohne beruflichen Bezug."
+    },
+    "ambiguous": false
+  },
+  {
+    "id": "TX-200",
+    "merchant": "Amazon.de",
+    "amount_eur": 116.75,
+    "date": "2026-12-25",
+    "description_de": "Aktenvernichter und Ordner für berufliche Unterlagen",
+    "ground_truth": {
+      "deductible": true,
+      "statute": "§ 9 Abs. 1 Nr. 6 EStG",
+      "reasoning": "Büromaterial und Arbeitsmittel für die berufliche Tätigkeit."
+    },
+    "ambiguous": false
+  }
+]

@@ -1,0 +1,16 @@
+{
+  "name": "tax-payday",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Taxfix x Cursor hackathon - voluntary recurring engagement outside filing season",
+  "scripts": {
+    "agents": "node agents/run.mjs --payslip data/payslip-lena.json",
+    "parse": "node agents/parse-pdf.mjs fixtures/payslip-sample.pdf",
+    "demo": "open index.html"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.68.0",
+    "unpdf": "^1.4.0"
+  }
+}

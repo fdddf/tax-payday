@@ -1,0 +1,839 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tax Payday</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+  :root{
+    --paper:#F3F5F1;
+    --surface:#FFFFFF;
+    --surface-2:#E9EEE8;
+    --ink:#14231A;
+    --ink-2:#55665A;
+    --ink-3:#7C8C81;
+    --green:#2F6B37;
+    --green-deep:#1E4A26;
+    --lime:#7FA81C;
+    --lime-bright:#9FD130;
+    --rule:#D7DFD8;
+    --hot:#B3400E;
+    --hot-bg:#F6E6DE;
+    --f-display:"Archivo","Helvetica Neue",Arial,sans-serif;
+    --f-body:"Source Sans 3",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    --f-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{height:100%;margin:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--f-body);
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:var(--f-display);margin:0;line-height:1.1;letter-spacing:-.025em;text-wrap:balance;}
+  p{margin:0;}
+  button{font:inherit;cursor:pointer;}
+  .mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums;}
+
+  /* ---------- shell ---------- */
+  .app{
+    min-height:100%;
+    display:flex;
+    flex-direction:column;
+    max-width:960px;
+    margin:0 auto;
+    padding-inline:20px;
+    padding-block:0 40px;
+  }
+  .bar{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding-block:20px 18px;
+    border-bottom:1px solid var(--rule);
+  }
+  .logo{
+    font-family:var(--f-display);
+    font-weight:800;
+    font-size:17px;
+    letter-spacing:-.03em;
+  }
+  .logo span{color:var(--green);}
+  .steps{display:flex;gap:6px;margin-left:auto;align-items:center;}
+  .step{
+    font-family:var(--f-mono);
+    font-size:10.5px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--ink-3);
+    padding:3px 9px;
+    border-radius:99px;
+    border:1px solid var(--rule);
+    white-space:nowrap;
+  }
+  .step.on{background:var(--ink);color:var(--paper);border-color:var(--ink);}
+  .step.done{color:var(--green);border-color:var(--green);}
+
+  .stage{flex:1;display:flex;flex-direction:column;justify-content:center;padding-block:36px;}
+
+  /* ---------- shared bits ---------- */
+  .eyebrow{
+    font-family:var(--f-mono);
+    font-size:11px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--ink-3);
+  }
+  .cta{
+    background:var(--ink);
+    color:var(--paper);
+    border:none;
+    border-radius:4px;
+    padding:14px 26px;
+    font-family:var(--f-display);
+    font-weight:700;
+    font-size:16px;
+    letter-spacing:-.01em;
+    transition:background .15s ease;
+  }
+  .cta:hover{background:var(--green-deep);}
+  .cta:focus-visible{outline:3px solid var(--lime-bright);outline-offset:2px;}
+  .cta.lime{background:var(--lime-bright);color:var(--ink);}
+  .cta.lime:hover{background:var(--lime);}
+  .hint{font-size:13.5px;color:var(--ink-3);margin-top:12px;}
+  .hint kbd{
+    font-family:var(--f-mono);
+    font-size:11.5px;
+    border:1px solid var(--rule);
+    border-bottom-width:2px;
+    border-radius:3px;
+    padding:1px 6px;
+    background:var(--surface);
+  }
+
+  /* ---------- act 1: the hook ---------- */
+  .hook{display:flex;flex-direction:column;gap:30px;}
+  .hook h1{font-size:clamp(34px,6.4vw,62px);font-weight:800;max-width:15ch;}
+  .hook h1 em{font-style:normal;color:var(--green);}
+  .hook .sub{font-size:clamp(17px,2.2vw,20px);color:var(--ink-2);max-width:52ch;}
+
+  .expiry{
+    background:var(--surface);
+    border:1px solid var(--rule);
+    border-left:4px solid var(--hot);
+    border-radius:4px;
+    padding:24px 26px;
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:8px 34px;
+    align-items:baseline;
+  }
+  .expiry .amt{
+    font-family:var(--f-mono);
+    font-size:clamp(38px,6vw,56px);
+    font-weight:600;
+    letter-spacing:-.03em;
+    color:var(--hot);
+    grid-row:span 2;
+    font-variant-numeric:tabular-nums;
+  }
+  .expiry .lab{font-weight:600;font-size:16.5px;}
+  .expiry .det{font-size:14.5px;color:var(--ink-2);}
+  .expiry .det code{
+    font-family:var(--f-mono);
+    font-size:12.5px;
+    background:var(--surface-2);
+    padding:1px 5px;
+    border-radius:3px;
+    color:var(--ink-2);
+  }
+  .countdown{
+    display:flex;
+    gap:10px;
+    align-items:baseline;
+    margin-top:2px;
+    font-family:var(--f-mono);
+    font-size:13px;
+    color:var(--hot);
+    letter-spacing:.04em;
+    text-transform:uppercase;
+  }
+
+  /* ---------- act 2: the pipeline ---------- */
+  .scan{display:flex;flex-direction:column;gap:22px;}
+  .scan-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;}
+  .scan-head h2{font-size:clamp(22px,3.2vw,30px);font-weight:700;}
+  .scan-head .doc{
+    font-family:var(--f-mono);
+    font-size:12.5px;
+    color:var(--ink-2);
+    background:var(--surface-2);
+    padding:4px 10px;
+    border-radius:3px;
+    margin-left:auto;
+  }
+
+  .pipeline{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:8px;
+  }
+  .node{
+    background:var(--surface);
+    border:1px solid var(--rule);
+    border-radius:4px;
+    padding:11px 12px;
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+    opacity:.45;
+    transition:opacity .25s ease, border-color .25s ease, box-shadow .25s ease;
+  }
+  .node.active{opacity:1;border-color:var(--lime-bright);box-shadow:0 0 0 2px rgba(159,209,48,.22);}
+  .node.done{opacity:1;border-color:var(--green);}
+  .node .n{font-family:var(--f-mono);font-size:10px;color:var(--ink-3);letter-spacing:.1em;}
+  .node .t{font-size:13px;font-weight:600;line-height:1.25;}
+  .node .s{font-family:var(--f-mono);font-size:10.5px;color:var(--ink-3);letter-spacing:.06em;text-transform:uppercase;margin-top:auto;}
+  .node.active .s{color:var(--lime);}
+  .node.done .s{color:var(--green);}
+
+  .log{
+    background:var(--ink);
+    color:#D9E4DB;
+    border-radius:4px;
+    padding:18px 20px;
+    font-family:var(--f-mono);
+    font-size:13px;
+    line-height:1.85;
+    min-height:250px;
+    max-height:44vh;
+    overflow-y:auto;
+  }
+  .log .ln{display:block;white-space:pre-wrap;word-break:break-word;}
+  .log .ag{color:var(--lime-bright);}
+  .log .ok{color:#8FD08C;}
+  .log .cite{color:#8FA5C9;}
+  .log .num{color:#FFFFFF;font-weight:600;}
+  .log .dim{color:#7E907F;}
+  .log .warn{color:#E8A87C;}
+  .caret{
+    display:inline-block;
+    width:8px;height:14px;
+    background:var(--lime-bright);
+    vertical-align:-2px;
+    animation:blink 1s steps(2,start) infinite;
+  }
+  @keyframes blink{to{visibility:hidden;}}
+
+  /* ---------- act 3: the result ---------- */
+  .result{display:flex;flex-direction:column;gap:26px;}
+  .payday{
+    background:var(--green-deep);
+    color:#fff;
+    border-radius:4px;
+    padding:30px 32px;
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+  }
+  .payday .eyebrow{color:rgba(255,255,255,.6);}
+  .payday .big{
+    font-family:var(--f-mono);
+    font-size:clamp(46px,9vw,84px);
+    font-weight:600;
+    letter-spacing:-.04em;
+    line-height:1;
+    color:var(--lime-bright);
+    font-variant-numeric:tabular-nums;
+  }
+  .payday .big small{font-size:.32em;font-weight:500;color:rgba(255,255,255,.72);letter-spacing:0;margin-left:.2em;}
+  .payday .when{font-size:17px;margin-top:8px;}
+  .payday .when b{color:var(--lime-bright);font-weight:600;}
+  .payday .foot{
+    font-size:14.5px;
+    color:rgba(255,255,255,.7);
+    border-top:1px solid rgba(255,255,255,.16);
+    margin-top:16px;
+    padding-top:14px;
+  }
+
+  .compare{
+    background:var(--surface);
+    border:1px solid var(--rule);
+    border-radius:4px;
+    padding:22px 24px;
+  }
+  .compare h3{font-size:18px;font-weight:700;}
+  .compare .lede{font-size:14.5px;color:var(--ink-2);margin-top:5px;}
+  .chart{margin-top:20px;display:flex;flex-direction:column;gap:18px;}
+  .row-lab{display:flex;align-items:baseline;gap:10px;font-size:13.5px;margin-bottom:7px;}
+  .row-lab .nm{font-weight:600;}
+  .row-lab .tot{margin-left:auto;font-family:var(--f-mono);font-size:13px;color:var(--ink-2);}
+  .bars{display:grid;grid-template-columns:repeat(13,1fr);gap:3px;align-items:end;height:84px;}
+  .bars .b{
+    background:var(--surface-2);
+    border-radius:2px 2px 0 0;
+    min-height:3px;
+    position:relative;
+  }
+  .bars.old .b.hit{background:var(--hot);}
+  .bars.new .b{background:var(--lime-bright);}
+  .months{display:grid;grid-template-columns:repeat(13,1fr);gap:3px;margin-top:6px;}
+  .months span{
+    font-family:var(--f-mono);
+    font-size:9.5px;
+    color:var(--ink-3);
+    text-align:center;
+    overflow:hidden;
+  }
+
+  .ledger{
+    border:1px solid var(--rule);
+    border-radius:4px;
+    overflow:hidden;
+    background:var(--surface);
+  }
+  .ledger .lrow{
+    display:grid;
+    grid-template-columns:1fr auto auto;
+    gap:16px;
+    padding:11px 18px;
+    border-bottom:1px solid var(--rule);
+    align-items:baseline;
+    font-size:14.5px;
+  }
+  .ledger .lrow:last-child{border-bottom:none;}
+  .ledger .lrow.sum{background:var(--surface-2);font-weight:600;}
+  .ledger .lrow.neg .amt{color:var(--hot);}
+  .ledger .nm b{font-weight:600;}
+  .ledger .nm small{display:block;color:var(--ink-3);font-size:12.5px;}
+  .ledger .cite{font-family:var(--f-mono);font-size:11.5px;color:var(--ink-3);white-space:nowrap;}
+  .ledger .amt{font-family:var(--f-mono);font-size:14.5px;font-variant-numeric:tabular-nums;white-space:nowrap;}
+
+  .actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center;}
+  .replay{
+    background:none;
+    border:1px solid var(--rule);
+    border-radius:4px;
+    padding:13px 20px;
+    color:var(--ink-2);
+    font-family:var(--f-display);
+    font-weight:600;
+    font-size:15px;
+  }
+  .replay:hover{border-color:var(--ink-3);color:var(--ink);}
+
+  .disclosure{
+    font-size:12.5px;
+    color:var(--ink-3);
+    border-top:1px solid var(--rule);
+    padding-top:14px;
+    margin-top:4px;
+  }
+
+
+  /* ---------- live model ---------- */
+  .live{
+    background:var(--surface);
+    border:1px solid var(--rule);
+    border-radius:4px;
+    padding:20px 24px 22px;
+  }
+  .live-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;}
+  .live-head h3{font-size:18px;font-weight:700;}
+  .live-tag{
+    font-family:var(--f-mono);font-size:10px;font-weight:600;letter-spacing:.11em;
+    text-transform:uppercase;color:var(--ink);background:var(--lime-bright);
+    padding:3px 9px;border-radius:99px;margin-left:auto;
+  }
+  .controls{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:18px;}
+  .ctl{display:flex;flex-direction:column;gap:7px;}
+  .cl{font-size:14px;color:var(--ink-2);}
+  .cl b{font-family:var(--f-mono);color:var(--ink);font-weight:600;margin-left:5px;font-variant-numeric:tabular-nums;}
+  .cf{font-size:11.5px;color:var(--ink-3);}
+  .ctl input[type=range]{
+    -webkit-appearance:none;appearance:none;width:100%;height:4px;
+    background:var(--surface-2);border-radius:99px;outline:none;
+  }
+  .ctl input[type=range]::-webkit-slider-thumb{
+    -webkit-appearance:none;width:18px;height:18px;border-radius:99px;
+    background:var(--green);cursor:pointer;border:3px solid var(--surface);
+    box-shadow:0 0 0 1px var(--rule);
+  }
+  .ctl input[type=range]::-moz-range-thumb{
+    width:14px;height:14px;border-radius:99px;background:var(--green);
+    cursor:pointer;border:3px solid var(--surface);
+  }
+  .ctl input[type=range]:focus-visible{outline:3px solid var(--lime-bright);outline-offset:4px;}
+  .ctl-hint{font-size:13px;color:var(--ink-3);margin-top:14px;}
+
+  .ledger .lrow.off{opacity:.4;}
+  .ledger .lrow.off .amt{text-decoration:line-through;}
+  .ledger .tick{
+    appearance:none;-webkit-appearance:none;
+    width:16px;height:16px;border:1.5px solid var(--ink-3);border-radius:3px;
+    background:var(--surface);cursor:pointer;flex:none;position:relative;top:2px;
+  }
+  .ledger .tick:checked{background:var(--green);border-color:var(--green);}
+  .ledger .tick:checked::after{
+    content:"";position:absolute;left:4.5px;top:1px;width:4px;height:9px;
+    border:solid #fff;border-width:0 2px 2px 0;transform:rotate(42deg);
+  }
+  .ledger .tick:focus-visible{outline:3px solid var(--lime-bright);outline-offset:2px;}
+  .ledger .lrow.pick{grid-template-columns:auto 1fr auto auto;}
+  .ledger .lrow.blocked{background:var(--hot-bg);}
+  .ledger .lrow.blocked .amt,.ledger .lrow.blocked .nm b{color:var(--hot);}
+
+  @media (max-width:720px){
+    .controls{grid-template-columns:1fr;}
+  }
+
+  body.auto .hint,body.auto .ctl-hint{visibility:hidden;}
+  [hidden]{display:none!important;}
+
+  @media (max-width:720px){
+    .pipeline{grid-template-columns:repeat(2,1fr);}
+    .expiry{grid-template-columns:1fr;gap:4px;}
+    .expiry .amt{grid-row:auto;}
+    .months span{font-size:8px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important;}
+  }
+</style>
+</head>
+<body>
+
+<div class="app">
+
+  <div class="bar">
+    <span class="logo">tax<span>·</span>payday</span>
+    <div class="steps">
+      <span class="step on" id="st1">1 · Expiring</span>
+      <span class="step" id="st2">2 · Agents</span>
+      <span class="step" id="st3">3 · Payday</span>
+    </div>
+  </div>
+
+  <div class="stage">
+
+    <!-- ============ ACT 1 ============ -->
+    <section class="hook" id="act1">
+      <div>
+        <span class="eyebrow">Taxfix · off-season</span>
+        <h1 style="margin-top:14px">You're lending the state money <em>interest-free</em>.</h1>
+        <p class="sub" style="margin-top:16px">Most people in Germany overpay income tax every month and wait up to 14 months to get it back. Some never claim it at all — and that money expires.</p>
+      </div>
+
+      <div class="expiry">
+        <span class="amt" id="expAmt">€2,417</span>
+        <span class="lab">Your 2022 refund has never been claimed.</span>
+        <span class="det">
+          Germany allows retroactive filing for four years. After <b>31 December 2026</b> this lapses permanently.
+          <code>§ 169 AO · § 46 Abs. 2 Nr. 8 EStG</code>
+          <span class="countdown" id="cd">— days left</span>
+        </span>
+      </div>
+
+      <div>
+        <button class="cta" id="go1">Recover it — and stop the leak</button>
+        <p class="hint">Then we fix the cause, not just the symptom. <kbd>Space</kbd> to advance</p>
+      </div>
+    </section>
+
+    <!-- ============ ACT 2 ============ -->
+    <section class="scan" id="act2" hidden>
+      <div class="scan-head">
+        <h2>Five agents, one payslip</h2>
+        <span class="doc">lohnabrechnung_09-2026.pdf</span>
+      </div>
+
+      <div class="pipeline" id="pipe"></div>
+
+      <div class="log" id="log"></div>
+
+      <div class="actions">
+        <button class="cta lime" id="go2" hidden>See your payday</button>
+        <span class="hint" id="running" style="margin-top:0">Orchestrating…</span>
+      </div>
+    </section>
+
+    <!-- ============ ACT 3 ============ -->
+    <section class="result" id="act3" hidden>
+      <div class="payday">
+        <span class="eyebrow">Your new monthly payslip</span>
+        <span class="big" id="bigNum">+&euro;183<small>every month</small></span>
+        <p class="when" id="whenLine">First one lands <b>28 November</b> &mdash; not July 2027.</p>
+        <p class="foot" id="footLine">Same &euro;2,196. Twelve payslips instead of one refund, fourteen months earlier. Registered once under &sect; 39a EStG, valid for two years.</p>
+      </div>
+
+      <div class="compare">
+        <h3>Where your money actually is</h3>
+        <p class="lede">Identical total. The only thing that changed is when you hold it.</p>
+        <div class="chart">
+          <div>
+            <div class="row-lab"><span class="nm">Today &mdash; wait for the refund</span><span class="tot" id="totOld">&euro;2,196 &middot; arrives Jul 2027</span></div>
+            <div class="bars old" id="barsOld"></div>
+            <div class="months" id="months1"></div>
+          </div>
+          <div>
+            <div class="row-lab"><span class="nm">With Tax Payday</span><span class="tot" id="totNew">&euro;183 &times; 12 &middot; starts Nov 2026</span></div>
+            <div class="bars new" id="barsNew"></div>
+            <div class="months" id="months2"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="live">
+        <div class="live-head">
+          <h3>Change her situation &mdash; everything recomputes</h3>
+          <span class="live-tag">live model</span>
+        </div>
+        <div class="controls">
+          <label class="ctl">
+            <span class="cl">Commute, one way <b id="kmOut">42 km</b></span>
+            <input type="range" id="kmRange" min="0" max="80" step="1" value="42">
+            <span class="cf mono" id="kmMath">20 &times; &euro;0.30 + 22 &times; &euro;0.38 = &euro;14.36/day</span>
+          </label>
+          <label class="ctl">
+            <span class="cl">Marginal rate <b id="rateOut">35%</b></span>
+            <input type="range" id="rateRange" min="14" max="45" step="1" value="35">
+            <span class="cf mono">&sect; 32a EStG progression</span>
+          </label>
+        </div>
+        <p class="ctl-hint">Untick any position below to see it drop out of the Freibetrag.</p>
+      </div>
+
+      <div class="ledger" id="ledger"></div>
+
+      <div class="actions">
+        <button class="cta lime" id="file">Submit to ELSTER</button>
+        <button class="replay" id="again">Replay demo</button>
+      </div>
+
+      <p class="disclosure">Modelled for Steuerklasse I, &euro;62,000 gross, Berlin. The Freibetrag arithmetic runs live in this page; the agent transcript is frozen from <span class="mono">agents/run.mjs</span> so the demo needs no network.</p>
+    </section>
+
+  </div>
+</div>
+
+<script>
+// ---------------------------------------------------------------------------
+// Case data — produced by the agent pipeline in ./agents, frozen for the stage.
+// Inlined rather than fetched so the demo works from file:// with no server.
+// ---------------------------------------------------------------------------
+const CASE = {
+  expiring: { amount: 2417, year: 2022, expires: "2026-12-31" },
+  expenses: [
+    { label:"Pendlerpauschale",  detail:"42 km each way · 200 days",        amount:2872, cite:"§ 9 I Nr. 4",  conf:.98 },
+    { label:"Fortbildungskosten", detail:"Part-time M.Sc. tuition",          amount:3900, cite:"§ 9 I S. 1",   conf:.95 },
+    { label:"Arbeitsmittel",      detail:"Desk, monitor, headset",           amount:332,  cite:"§ 9 I Nr. 6",  conf:.91 },
+    { label:"Berufsverband",      detail:"Union dues",                       amount:220,  cite:"§ 9 I Nr. 3",  conf:.99 },
+    { label:"Bewerbungskosten",   detail:"Interview travel, materials",      amount:180,  cite:"§ 9 I S. 1",   conf:.84 }
+  ],
+  total: 7504, pauschbetrag: 1230, freibetrag: 6274,
+  monthlyTaxable: 522.83, monthlyNet: 183, annual: 2196
+};
+
+const AGENTS = [
+  { n:"01", t:"Payslip Parser",        s:"idle" },
+  { n:"02", t:"Expense Miner",         s:"idle" },
+  { n:"03", t:"Statute Agent · MCP",   s:"idle" },
+  { n:"04", t:"Freibetrag Calculator", s:"idle" },
+  { n:"05", t:"Payday Simulator",      s:"idle" }
+];
+
+const eur = n => "€" + n.toLocaleString("de-DE", { maximumFractionDigits: 0 });
+
+// --- countdown to the statutory expiry -------------------------------------
+(function countdown(){
+  const end = new Date("2026-12-31T23:59:59");
+  const days = Math.max(0, Math.ceil((end - new Date()) / 86400000));
+  document.getElementById("cd").textContent = days + " days left · then gone permanently";
+})();
+
+// --- pipeline nodes ---------------------------------------------------------
+const pipe = document.getElementById("pipe");
+pipe.innerHTML = AGENTS.map((a,i) =>
+  `<div class="node" id="nd${i}">
+     <span class="n">${a.n}</span>
+     <span class="t">${a.t}</span>
+     <span class="s" id="ns${i}">queued</span>
+   </div>`).join("");
+
+// --- the transcript ---------------------------------------------------------
+// Each entry: [agentIndex, html, delayAfterMs]
+const SCRIPT = [
+  [0, `<span class="ag">payslip-parser</span> reading lohnabrechnung_09-2026.pdf`, 420],
+  [0, `  brutto <span class="num">€5,166.67</span>/mo · Steuerklasse <span class="num">I</span> · Kirchensteuer <span class="dim">none</span>`, 380],
+  [0, `  existing Freibetrag on record: <span class="dim">none</span>`, 340],
+  [0, `<span class="ok">✓</span> parsed in 1.2s`, 260],
+
+  [1, `<span class="ag">expense-miner</span> scanning 14 months of receipts + commute data`, 460],
+  [1, `  found <span class="num">5</span> deductible positions`, 300],
+  [1, `  Pendlerpauschale  42 km × 200 d      <span class="num">€2,872</span>`, 240],
+  [1, `  Fortbildungskosten M.Sc. tuition     <span class="num">€3,900</span>`, 240],
+  [1, `  Arbeitsmittel      3 items           <span class="num">€332</span>`, 200],
+  [1, `  Berufsverband      union dues        <span class="num">€220</span>`, 200],
+  [1, `  Bewerbungskosten   3 trips           <span class="num">€180</span>`, 240],
+  [1, `<span class="ok">✓</span> total <span class="num">€7,504</span>`, 300],
+
+  [2, `<span class="ag">statute-agent</span> validating each position against EStG via MCP`, 500],
+  [2, `  Pendlerpauschale   <span class="cite">§ 9 Abs. 1 Nr. 4 EStG</span>  <span class="ok">valid</span> <span class="dim">0.98</span>`, 260],
+  [2, `  Fortbildungskosten <span class="cite">§ 9 Abs. 1 Satz 1 EStG</span> <span class="ok">valid</span> <span class="dim">0.95</span>`, 260],
+  [2, `  Arbeitsmittel      <span class="cite">§ 9 Abs. 1 Nr. 6 EStG</span>  <span class="ok">valid</span> <span class="dim">0.91</span>`, 260],
+  [2, `  Berufsverband      <span class="cite">§ 9 Abs. 1 Nr. 3 EStG</span>  <span class="ok">valid</span> <span class="dim">0.99</span>`, 260],
+  [2, `  Bewerbungskosten   <span class="cite">§ 9 Abs. 1 Satz 1 EStG</span> <span class="warn">review</span> <span class="dim">0.84</span>`, 340],
+  [2, `<span class="ok">✓</span> 5/5 defensible · 1 flagged for user confirmation`, 320],
+
+  [3, `<span class="ag">freibetrag-calculator</span> applying thresholds`, 440],
+  [3, `  Werbungskosten                        <span class="num">€7,504</span>`, 240],
+  [3, `  − Arbeitnehmer-Pauschbetrag <span class="cite">§ 9a</span>  <span class="num">€1,230</span> <span class="dim">(granted anyway)</span>`, 300],
+  [3, `  = registrable Freibetrag              <span class="num">€6,274</span>`, 280],
+  [3, `  Antragsgrenze <span class="cite">§ 39a II S. 4</span> €600      <span class="ok">passed</span>`, 320],
+  [3, `<span class="ok">✓</span> eligible`, 260],
+
+  [4, `<span class="ag">payday-simulator</span> converting to monthly net`, 460],
+  [4, `  taxable income ↓ <span class="num">€522.83</span>/mo · marginal rate <span class="num">35%</span>`, 320],
+  [4, `  net effect      <span class="num">+€183</span>/mo · <span class="num">€2,196</span>/yr`, 300],
+  [4, `  first affected payroll run: <span class="num">28 Nov 2026</span>`, 300],
+  [4, `  generating Antrag auf Lohnsteuer-Ermäßigung <span class="cite">§ 39a EStG</span>`, 380],
+  [4, `<span class="ok">✓</span> ELSTER submission ready`, 300]
+];
+
+const logEl = document.getElementById("log");
+let timers = [];
+
+function setNode(i, state, label){
+  const nd = document.getElementById("nd"+i), ns = document.getElementById("ns"+i);
+  if(!nd) return;
+  nd.classList.remove("active","done");
+  if(state) nd.classList.add(state);
+  ns.textContent = label;
+}
+
+function runPipeline(){
+  logEl.innerHTML = "";
+  AGENTS.forEach((_,i) => setNode(i, null, "queued"));
+  document.getElementById("go2").hidden = true;
+  document.getElementById("running").hidden = false;
+
+  let t = 0, current = -1;
+  SCRIPT.forEach(([ai, html, delay]) => {
+    timers.push(setTimeout(() => {
+      if(ai !== current){
+        if(current >= 0) setNode(current, "done", "done");
+        current = ai;
+        setNode(ai, "active", "running");
+      }
+      const ln = document.createElement("span");
+      ln.className = "ln";
+      ln.innerHTML = html;
+      logEl.appendChild(ln);
+      logEl.scrollTop = logEl.scrollHeight;
+    }, t));
+    t += delay;
+  });
+
+  timers.push(setTimeout(() => {
+    setNode(4, "done", "done");
+    const done = document.createElement("span");
+    done.className = "ln";
+    done.innerHTML = `\n<span class="ok">● pipeline complete</span> <span class="dim">— 5 agents · 27 statute lookups · 9.4s</span><span class="caret"></span>`;
+    logEl.appendChild(done);
+    logEl.scrollTop = logEl.scrollHeight;
+    document.getElementById("running").hidden = true;
+    document.getElementById("go2").hidden = false;
+    document.getElementById("go2").focus();
+  }, t + 300));
+}
+
+// --- act 3: the live model --------------------------------------------------
+// Everything below act 2 is computed, not replayed. The agent transcript is
+// frozen; the money is not.
+const M = ["Nov","Dec","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov"];
+const PAUSCHBETRAG = 1230;   // § 9a Satz 1 Nr. 1a EStG
+const ANTRAGSGRENZE = 600;   // § 39a Abs. 2 Satz 4 EStG
+const WORKDAYS = 200;
+
+const state = {
+  km: 42,
+  rate: 0.35,
+  on: new Set(CASE.expenses.map(e => e.label))
+};
+
+// § 9 Abs. 1 Nr. 4 EStG — €0.30 to 20 km, €0.38 from the 21st.
+function pendler(km, days){
+  const perDay = Math.min(km,20) * 0.30 + Math.max(0, km-20) * 0.38;
+  return { perDay, total: Math.round(perDay * days) };
+}
+
+function model(){
+  const p = pendler(state.km, WORKDAYS);
+  const rows = CASE.expenses.map(e =>
+    e.label === "Pendlerpauschale"
+      ? { ...e, amount: p.total, detail: `${state.km} km each way · ${WORKDAYS} days` }
+      : e
+  );
+  const total = rows.reduce((s,e) => s + (state.on.has(e.label) ? e.amount : 0), 0);
+  const freibetrag = Math.max(0, total - PAUSCHBETRAG);
+  const passed = freibetrag > ANTRAGSGRENZE;
+  const monthlyTaxable = freibetrag / 12;
+  const monthlyNet = passed ? Math.round(monthlyTaxable * state.rate) : 0;
+  return { rows, perDay: p.perDay, total, freibetrag, passed, monthlyTaxable, monthlyNet,
+           annual: monthlyNet * 12 };
+}
+
+function renderChart(m){
+  const peak = Math.max(m.annual, 1);
+  document.getElementById("barsOld").innerHTML = M.map((_,i) =>
+    `<div class="b ${i===8?"hit":""}" style="height:${i===8?100:3}%"></div>`).join("");
+  document.getElementById("barsNew").innerHTML = M.map((_,i) =>
+    `<div class="b" style="height:${i<12 ? Math.max(3, (m.monthlyNet*12/peak)*26) : 3}%"></div>`).join("");
+  document.getElementById("months1").innerHTML = M.map(x=>`<span>${x}</span>`).join("");
+  document.getElementById("months2").innerHTML = M.map(x=>`<span>${x}</span>`).join("");
+  document.getElementById("totOld").textContent = `${eur(m.annual)} · arrives Jul 2027`;
+  document.getElementById("totNew").textContent = `${eur(m.monthlyNet)} × 12 · starts Nov 2026`;
+}
+
+function renderLedger(m){
+  const rows = m.rows.map(e => {
+    const on = state.on.has(e.label);
+    return `<div class="lrow pick ${on?"":"off"}">
+      <input type="checkbox" class="tick" data-k="${e.label}" ${on?"checked":""} aria-label="${e.label}">
+      <span class="nm"><b>${e.label}</b><small>${e.detail}</small></span>
+      <span class="cite">${e.cite}</span>
+      <span class="amt">${eur(e.amount)}</span>
+    </div>`;
+  }).join("");
+
+  const gate = m.passed
+    ? `<div class="lrow sum">
+         <span class="nm"><b>Registrable Freibetrag</b><small>Clears the €600 Antragsgrenze</small></span>
+         <span class="cite">§ 39a EStG</span>
+         <span class="amt">${eur(m.freibetrag)}</span>
+       </div>`
+    : `<div class="lrow blocked">
+         <span class="nm"><b>Not registrable</b><small>${eur(m.freibetrag)} does not clear the €600 Antragsgrenze</small></span>
+         <span class="cite">§ 39a II S. 4</span>
+         <span class="amt">€0</span>
+       </div>`;
+
+  document.getElementById("ledger").innerHTML = rows + `
+    <div class="lrow neg">
+      <span class="nm"><b>Arbeitnehmer-Pauschbetrag</b><small>Granted automatically — only the excess is registrable</small></span>
+      <span class="cite">§ 9a S. 1 Nr. 1a</span>
+      <span class="amt">− ${eur(PAUSCHBETRAG)}</span>
+    </div>` + gate;
+
+  document.getElementById("ledger").querySelectorAll(".tick").forEach(t => {
+    t.onchange = () => {
+      t.checked ? state.on.add(t.dataset.k) : state.on.delete(t.dataset.k);
+      paint();
+    };
+  });
+}
+
+function paint(){
+  const m = model();
+  document.getElementById("bigNum").innerHTML =
+    m.monthlyNet > 0 ? `+€${m.monthlyNet}<small>every month</small>`
+                     : `€0<small>nothing to register</small>`;
+  document.getElementById("whenLine").innerHTML =
+    m.monthlyNet > 0 ? `First one lands <b>28 November</b> — not July 2027.`
+                     : `Below the threshold, the relief only arrives with the annual assessment.`;
+  document.getElementById("footLine").textContent =
+    m.monthlyNet > 0
+      ? `Same ${eur(m.annual)}. Twelve payslips instead of one refund, fourteen months earlier. Registered once under § 39a EStG, valid for two years.`
+      : `Werbungskosten of ${eur(m.total)} leave ${eur(m.freibetrag)} above the Pauschbetrag — under the €600 application threshold.`;
+  document.getElementById("kmOut").textContent = state.km + " km";
+  document.getElementById("kmMath").innerHTML =
+    `${Math.min(state.km,20)} × €0.30 + ${Math.max(0,state.km-20)} × €0.38 = €${m.perDay.toFixed(2)}/day`;
+  document.getElementById("rateOut").textContent = Math.round(state.rate*100) + "%";
+  renderChart(m);
+  renderLedger(m);
+}
+
+document.getElementById("kmRange").oninput = e => { state.km = +e.target.value; paint(); };
+document.getElementById("rateRange").oninput = e => { state.rate = +e.target.value/100; paint(); };
+
+// --- act transitions --------------------------------------------------------
+function show(act){
+  [1,2,3].forEach(i => {
+    document.getElementById("act"+i).hidden = (i !== act);
+    const st = document.getElementById("st"+i);
+    st.classList.toggle("on", i === act);
+    st.classList.toggle("done", i < act);
+  });
+  window.scrollTo(0,0);
+  if(act === 2) runPipeline();
+  if(act === 3) paint();
+}
+
+document.getElementById("go1").onclick = () => show(2);
+document.getElementById("go2").onclick = () => show(3);
+document.getElementById("again").onclick = () => {
+  timers.forEach(clearTimeout); timers = [];
+  show(1);
+};
+document.getElementById("file").onclick = function(){
+  this.textContent = "Submitted — confirmation in 3 working days";
+  this.disabled = true;
+  this.style.opacity = ".75";
+  this.style.cursor = "default";
+};
+
+// Space / arrow advances — keeps the stage demo off the trackpad.
+document.addEventListener("keydown", e => {
+  if(e.key !== " " && e.key !== "ArrowRight") return;
+  if(document.activeElement && document.activeElement.tagName === "BUTTON" && e.key === " ") return;
+  e.preventDefault();
+  if(!document.getElementById("act1").hidden) show(2);
+  else if(!document.getElementById("go2").hidden) show(3);
+});
+
+show(1);
+
+// --- autoplay: hands-off run for screen recording --------------------------
+// index.html?auto=1  — drives itself through all three acts, then demonstrates
+// the live model by sweeping the commute slider. No input needed.
+function autoplay(){
+  const wait = ms => new Promise(r => setTimeout(r, ms));
+  const ease = (a,b,t) => Math.round(a + (b-a) * (t<.5 ? 2*t*t : 1-Math.pow(-2*t+2,2)/2));
+
+  async function sweep(from, to, ms){
+    const steps = Math.round(ms/28);
+    for(let i=0;i<=steps;i++){
+      state.km = ease(from, to, i/steps);
+      document.getElementById("kmRange").value = state.km;
+      paint();
+      await wait(28);
+    }
+  }
+
+  (async () => {
+    document.body.classList.add("auto");
+    await wait(5200);                 // act 1 — let the expiring number land
+    show(2);
+    await wait(11800);                // act 2 — full pipeline transcript
+    show(3);
+    await wait(3600);                 // act 3 — hold on +€183
+    await sweep(42, 64, 1500);        // longer commute — everything climbs
+    await wait(1400);
+    await sweep(64, 14, 2200);        // under the threshold — UI refuses
+    await wait(2600);                 // hold on the red "not registrable" state
+    await sweep(14, 42, 1600);        // back to Lena's real commute
+    await wait(2400);
+    document.body.classList.remove("auto");
+  })();
+}
+if(new URLSearchParams(location.search).get("auto")) autoplay();
+</script>
+</body>
+</html>

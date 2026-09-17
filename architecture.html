@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tax Payday — Architecture</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+  :root{
+    --paper:#F3F5F1; --surface:#FFFFFF; --surface-2:#E9EEE8;
+    --ink:#14231A; --ink-2:#55665A; --ink-3:#7C8C81;
+    --green:#2F6B37; --green-deep:#1E4A26;
+    --lime:#7FA81C; --lime-bright:#9FD130;
+    --rule:#D7DFD8; --hot:#B3400E;
+    --f-display:"Archivo","Helvetica Neue",Arial,sans-serif;
+    --f-body:"Source Sans 3",-apple-system,sans-serif;
+    --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{height:100%;margin:0;}
+  body{background:var(--paper);color:var(--ink);font-family:var(--f-body);
+       display:flex;align-items:center;justify-content:center;padding:32px;}
+  .sheet{width:100%;max-width:1120px;}
+  h1{font-family:var(--f-display);font-size:clamp(24px,3.4vw,36px);font-weight:800;
+     letter-spacing:-.03em;margin:0;}
+  .sub{color:var(--ink-2);font-size:16px;margin-top:6px;}
+  .eyebrow{font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;
+           text-transform:uppercase;color:var(--ink-3);}
+
+  .flow{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:30px;}
+  .ag{background:var(--surface);border:1px solid var(--rule);border-radius:4px;
+      padding:14px 15px;display:flex;flex-direction:column;gap:7px;position:relative;}
+  .ag.law{border-color:var(--lime-bright);box-shadow:0 0 0 2px rgba(159,209,48,.2);}
+  .ag .n{font-family:var(--f-mono);font-size:10px;letter-spacing:.12em;color:var(--ink-3);}
+  .ag h3{font-family:var(--f-display);font-size:15px;font-weight:700;margin:0;line-height:1.2;}
+  .ag p{margin:0;font-size:13px;color:var(--ink-2);line-height:1.45;}
+  .ag .io{font-family:var(--f-mono);font-size:10.5px;color:var(--ink-3);
+          border-top:1px solid var(--rule);padding-top:7px;margin-top:auto;line-height:1.6;}
+  .ag .tool{display:inline-block;font-family:var(--f-mono);font-size:10px;font-weight:600;
+            background:var(--lime-bright);color:var(--ink);padding:2px 7px;border-radius:99px;
+            letter-spacing:.06em;align-self:flex-start;}
+  .arrow{position:absolute;right:-9px;top:50%;width:8px;height:2px;background:var(--rule);z-index:1;}
+  .ag:last-child .arrow{display:none;}
+
+  .gate{margin-top:14px;background:var(--green-deep);color:#fff;border-radius:4px;
+        padding:16px 20px;display:flex;gap:18px;align-items:baseline;flex-wrap:wrap;}
+  .gate .k{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.12em;
+           text-transform:uppercase;color:var(--lime-bright);white-space:nowrap;}
+  .gate p{margin:0;font-size:14.5px;color:rgba(255,255,255,.88);}
+  .gate b{color:var(--lime-bright);font-weight:600;}
+
+  .notes{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:26px;}
+  .note{border-top:2px solid var(--rule);padding-top:11px;}
+  .note.hi{border-top-color:var(--lime-bright);}
+  .note h4{font-family:var(--f-display);font-size:14px;font-weight:700;margin:0;}
+  .note p{margin:5px 0 0;font-size:13px;color:var(--ink-2);line-height:1.5;}
+  .note code{font-family:var(--f-mono);font-size:11.5px;background:var(--surface-2);
+             padding:1px 5px;border-radius:3px;}
+
+  footer{margin-top:24px;padding-top:12px;border-top:1px solid var(--rule);
+         display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+         font-family:var(--f-mono);font-size:11px;color:var(--ink-3);letter-spacing:.04em;}
+
+  @media (max-width:900px){
+    .flow{grid-template-columns:repeat(2,1fr);}
+    .notes{grid-template-columns:1fr;}
+    .arrow{display:none;}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <span class="eyebrow">Tax Payday · agent pipeline</span>
+  <h1 style="margin-top:10px">One payslip in. A bigger payslip out.</h1>
+  <p class="sub">Five agents, one law-lookup tool, and a hard rule about who is allowed to use it.</p>
+
+  <div class="flow">
+    <div class="ag">
+      <span class="arrow"></span>
+      <span class="n">01</span>
+      <h3>Payslip Parser</h3>
+      <p>Reads the Lohnabrechnung and estimates the marginal rate.</p>
+      <span class="io">in · lohnabrechnung.pdf<br>out · gross, class, rate</span>
+    </div>
+    <div class="ag">
+      <span class="arrow"></span>
+      <span class="n">02</span>
+      <h3>Expense Miner</h3>
+      <p>Finds deductible positions in receipts, commute and calendar. Shows the arithmetic.</p>
+      <span class="io">in · 14mo receipts<br>out · 5 positions</span>
+    </div>
+    <div class="ag law">
+      <span class="arrow"></span>
+      <span class="n">03</span>
+      <h3>Statute Agent</h3>
+      <span class="tool">lookup_statute · MCP</span>
+      <p>Validates every position against the EStG. The only agent that may cite law.</p>
+      <span class="io">out · cite + verdict<br>+ confidence</span>
+    </div>
+    <div class="ag">
+      <span class="arrow"></span>
+      <span class="n">04</span>
+      <h3>Freibetrag Calculator</h3>
+      <p>Applies § 9a Pauschbetrag first, then the § 39a Antragsgrenze. Order is not negotiable.</p>
+      <span class="io">out · €6,274<br>registrable</span>
+    </div>
+    <div class="ag">
+      <span class="n">05</span>
+      <h3>Payday Simulator</h3>
+      <p>Converts to monthly net, finds the first payroll run, generates the ELSTER filing.</p>
+      <span class="io">out · +€183/mo<br>from 28 Nov</span>
+    </div>
+  </div>
+
+  <div class="gate">
+    <span class="k">The gate</span>
+    <p>Positions the Statute Agent will not defend <b>never reach the calculator</b>. That separation is what makes every euro auditable instead of merely plausible.</p>
+  </div>
+
+  <div class="notes">
+    <div class="note hi">
+      <h4>One tool, one holder</h4>
+      <p>Only agent 03 is given <code>lookup_statute</code>, and it is instructed never to cite a provision it has not looked up. The other four cannot invent law because they cannot reach it.</p>
+    </div>
+    <div class="note">
+      <h4>Confidence travels with the money</h4>
+      <p>Each position carries a score. Anything below <code>0.90</code> is surfaced to the user for confirmation rather than silently claimed.</p>
+    </div>
+    <div class="note">
+      <h4>Frozen for the stage</h4>
+      <p>Output is written to <code>data/case-lena.json</code> and replayed by the demo — real pipeline, zero latency, no wifi dependency.</p>
+    </div>
+  </div>
+
+  <footer>
+    <span>agents/run.mjs · claude-sonnet-5 · 5 agents · 27 statute lookups</span>
+    <span>Taxfix × Cursor · Berlin</span>
+  </footer>
+
+</div>
+</body>
+</html>
